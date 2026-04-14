@@ -1,0 +1,22 @@
+# Obsidian
+vault/.obsidian/workspace*
+vault/.obsidian/cache
+vault/.trash/
+
+# Node / Next.js
+app/node_modules/
+app/.next/
+app/out/
+app/.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
