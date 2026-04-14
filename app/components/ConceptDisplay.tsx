@@ -1,0 +1,169 @@
+import Link from 'next/link';
+import type { Concept } from '@/lib/types';
+import { slugify, DOMEIN_CONFIG } from '@/lib/utils';
+
+interface Props {
+  concept: Concept;
+  /** Full concept list — used to decide which gerelateerd items are linkable. */
+  allConcepts: Concept[];
+  /** Show a back-link and omit the "Toon ander concept" button. */
+  isDetail?: boolean;
+  onOther?: () => void;
+}
+
+export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther }: Props) {
+  const cfg = DOMEIN_CONFIG[concept.domein];
+  const knownSlugs = new Set(allConcepts.map((c) => c.slug));
+
+  return (
+    <div className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
+      <div className="mx-auto max-w-[680px] px-5 py-10 pb-20">
+
+        {/* ── Header ── */}
+        <header className="mb-10 flex items-center justify-between">
+          <Link
+            href="/"
+            className="text-sm font-sans tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
+            style={{ fontFamily: 'system-ui, sans-serif' }}
+          >
+            Leertuin
+          </Link>
+          {isDetail && (
+            <Link
+              href="/"
+              className="text-sm font-sans opacity-50 hover:opacity-100 transition-opacity"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              ← Vandaag
+            </Link>
+          )}
+        </header>
+
+        {/* ── Domain badge ── */}
+        <div className="mb-4">
+          <span
+            className={`inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase ${cfg.badge}`}
+            style={{ fontFamily: 'system-ui, sans-serif' }}
+          >
+            {cfg.label}
+          </span>
+        </div>
+
+        {/* ── Title ── */}
+        <h1 className="text-4xl font-semibold leading-tight mb-8 tracking-tight">
+          {concept.titel}
+        </h1>
+
+        {/* ── Kern callout ── */}
+        {concept.kern && (
+          <div
+            className={`rounded-lg border-l-4 p-5 mb-8 ${cfg.callout} ${cfg.border}`}
+          >
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-50"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Kern
+            </p>
+            <div
+              className="prose text-[1rem] leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: concept.kern }}
+            />
+          </div>
+        )}
+
+        {/* ── Uitleg ── */}
+        {concept.uitleg && (
+          <section className="mb-8">
+            <div
+              className="prose"
+              dangerouslySetInnerHTML={{ __html: concept.uitleg }}
+            />
+          </section>
+        )}
+
+        {/* ── Waarom het ertoe doet ── */}
+        {concept.waarom && (
+          <section className="mb-8">
+            <h2
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Waarom het ertoe doet
+            </h2>
+            <div
+              className="prose opacity-80"
+              dangerouslySetInnerHTML={{ __html: concept.waarom }}
+            />
+          </section>
+        )}
+
+        {/* ── Gerelateerd ── */}
+        {concept.gerelateerd.length > 0 && (
+          <section className="mb-10">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-40"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Gerelateerd
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {concept.gerelateerd.map((name) => {
+                const slug = slugify(name);
+                const linked = knownSlugs.has(slug);
+                const cls =
+                  'rounded-full px-3 py-1 text-sm border transition-opacity hover:opacity-100 opacity-70';
+                return linked ? (
+                  <Link
+                    key={name}
+                    href={`/concept/${slug}`}
+                    className={`${cls} hover:underline`}
+                    style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
+                  >
+                    {name}
+                  </Link>
+                ) : (
+                  <span
+                    key={name}
+                    className={cls}
+                    style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
+                  >
+                    {name}
+                  </span>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* ── Tags ── */}
+        {concept.tags.length > 0 && (
+          <div className="mb-8 flex flex-wrap gap-2">
+            {concept.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs opacity-40"
+                style={{ fontFamily: 'system-ui, sans-serif' }}
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* ── "Toon ander concept" button ── */}
+        {!isDetail && onOther && (
+          <div className="pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+            <button
+              onClick={onOther}
+              className="text-sm opacity-50 hover:opacity-100 transition-opacity"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Toon ander concept →
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

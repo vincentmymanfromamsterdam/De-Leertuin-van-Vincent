@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="38" fill="#1a3328"/>
+  <!-- Simple leaf shape -->
+  <path
+    d="M96 32 C96 32, 140 60, 140 100 C140 130, 120 155, 96 160 C72 155, 52 130, 52 100 C52 60, 96 32, 96 32 Z"
+    fill="#4ade80"
+    opacity="0.9"
+  />
+  <path
+    d="M96 160 L96 80"
+    stroke="#1a3328"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    d="M96 120 C96 120, 76 105, 68 88"
+    stroke="#1a3328"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M96 105 C96 105, 116 90, 124 73"
+    stroke="#1a3328"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

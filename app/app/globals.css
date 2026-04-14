@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* ─── Colour tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #faf8f4;
+  --fg: #1c1b18;
+  --muted: #6b6760;
+  --border: #e2ddd6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110;
+    --fg: #e8e6e0;
+    --muted: #9a9890;
+    --border: #2c2b28;
+  }
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+html {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.75;
+}
+
+/* ─── Prose (rendered markdown) ────────────────────────────── */
+.prose p {
+  margin-bottom: 1em;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.prose li {
+  margin-bottom: 0.2em;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose :last-child {
+  margin-bottom: 0;
+}
