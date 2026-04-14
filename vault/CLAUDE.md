@@ -151,11 +151,42 @@ aangemaakt: 2026-04-14
 
 Russell's HWP is opinionated. Bij controversiële interpretaties: markeer met `status: contested` en noteer in de note zelf "Russell stelt X; moderne scholarship wijst op Y". Dit houdt de vault intellectueel eerlijk.
 
-## Voor Claude / AI-assistenten
+## Content-generatie met AI: principes
 
-Als je helpt notes te maken:
-- Schrijf in eigen woorden, vat samen, citeer niet uit bronnen
-- Houd notes atomair — splits liever dan opproppen
-- Suggereer links naar bestaande notes (check eerst of ze bestaan)
-- Bij filosofie: als Russell een omstreden positie inneemt, markeer dat
-- Frontmatter is verplicht; status default `seed` tenzij duidelijk ripe
+Vincent gebruikt Claude als schrijfassistent voor een groot deel van de notes. Deze sectie legt vast waarom er een extra curatie-stap tussen zit, zodat de vault persoonlijke kennis blijft en niet verwordt tot een passieve inhoudsstroom.
+
+### Kernprincipe: AI schrijft `draft`, niet `ripe`
+
+Notes die door Claude worden gegenereerd, krijgen **standaard `status: draft`** — niet `ripe`. De overgang van draft naar ripe is waar Vincent zelf werk verricht:
+
+1. **Lezen** en controleren of hij het concept begrijpt
+2. **Herformuleren** van minstens één passage in eigen woorden
+3. **Toevoegen** van minstens één eigen observatie, vraag of koppeling aan bestaande kennis (in "Open vragen" of als nieuwe subsectie)
+4. **Feitencheck** waar relevant (data, getallen, soortnamen)
+5. Pas dan: `status: ripe` en `concept_of_day_eligible: true`
+
+Dit kost ±5 minuten per note maar is het verschil tussen consumeren en leren.
+
+### Voor Claude die helpt met notes schrijven
+
+- **Schrijf in eigen woorden**, vat samen, citeer niet uit bronnen
+- **Houd notes atomair** — liever splitsen dan opproppen
+- **Default `status: draft`** voor AI-gegenereerde content (Vincent zet zelf op ripe na bewerking)
+- **Suggereer `[[links]]`** naar bestaande notes (check eerst of ze bestaan in de vault)
+- **Bij filosofie**: als Russell (of een andere bron) een omstreden positie inneemt, markeer in de tekst "Russell stelt X; moderne scholarship wijst op Y" en overweeg `status: contested`
+- **Bij natuur/kosmologie**: wees voorzichtig met getallen, data en soortnamen. Flag expliciet wanneer iets niet is geverifieerd tegen een bron ("nog aan te vullen" in "Bronnen")
+- **Frontmatter is verplicht**
+- **Vermeld niet dat Claude de note geschreven heeft** — de vault is een persoonlijke kennisbasis, niet een archief van AI-output
+
+### Werkwijzen die goed werken
+
+- **"Ik las Russell Book I Ch. X, schrijf een concept-note over Y"** — Vincent stelt het onderwerp voor, Claude schrijft uit
+- **"Welke 3-5 atomic concepts zitten er in dit hoofdstuk?"** — Claude stelt lijst voor, Vincent kiest, Claude schrijft uit
+- **"Review deze seed-note die ik schreef"** — Vincent schrijft zelf, Claude geeft feedback (scherpere formulering, ontbrekende verbindingen)
+
+### Wat te vermijden
+
+- Claude genereert zonder brief een stroom aan notes die Vincent niet zelf heeft geselecteerd
+- AI-content rechtstreeks op `ripe` zetten zonder bewerkingsstap
+- Over-citeren of direct parafraseren uit bronnen
+- Notes te lang of niet-atomair maken
