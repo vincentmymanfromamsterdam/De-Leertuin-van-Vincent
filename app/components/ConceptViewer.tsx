@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import type { Concept, Domein } from '@/lib/types';
 import { getDomeinForDay } from '@/lib/utils';
 import ConceptDisplay from './ConceptDisplay';
@@ -26,17 +27,17 @@ function pickOldest(pool: Concept[]): Concept {
 
 export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
   const [concept, setConcept] = useState<Concept | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (concepts.length === 0) return;
 
     const domein: Domein | 'random' = getDomeinForDay(new Date());
 
-    // Filter to today's domain (or all on Sunday)
     const pool =
       domein === 'random' ? concepts : concepts.filter((c) => c.domein === domein);
 
-    const eligible = pool.length > 0 ? pool : concepts; // fallback to all if domain is empty
+    const eligible = pool.length > 0 ? pool : concepts;
     const picked = pickOldest(eligible);
 
     setConcept(picked);
@@ -46,15 +47,15 @@ export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
   function handleOther() {
     if (!concept) return;
 
-    // Random pick from same domain, excluding current
     const pool = concepts.filter(
       (c) => c.domein === concept.domein && c.slug !== concept.slug,
     );
     if (pool.length === 0) return;
 
     const next = pool[Math.floor(Math.random() * pool.length)];
-    setConcept(next);
     localStorage.setItem(LS_KEY(next.slug), today());
+    // Navigate to the concept's detail page so the URL updates and back-button works.
+    router.push(`/concept/${next.slug}`);
   }
 
   if (concepts.length === 0) {
@@ -72,21 +73,18 @@ export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
   }
 
   if (!concept) {
-    // Hydrating — render blank canvas so no flash
-    return (
-      <div className="min-h-screen" style={{ background: 'var(--bg)' }} />
-    );
+    return <div className="min-h-screen" style={{ background: 'var(--bg)' }} />;
   }
 
-  const sameDomain = concepts.filter(
-    (c) => c.domein === concept.domein && c.slug !== concept.slug,
-  );
+  const hasOthers =
+    concepts.filter((c) => c.domein === concept.domein && c.slug !== concept.slug).length > 0;
 
   return (
     <ConceptDisplay
       concept={concept}
       allConcepts={concepts}
-      onOther={sameDomain.length > 0 ? handleOther : undefined}
+      onOther={handleOther}
+      otherDisabled={!hasOthers}
     />
   );
 }

@@ -9,9 +9,11 @@ interface Props {
   /** Show a back-link and omit the "Toon ander concept" button. */
   isDetail?: boolean;
   onOther?: () => void;
+  /** When true the button renders but is disabled (only one concept in domain). */
+  otherDisabled?: boolean;
 }
 
-export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther }: Props) {
+export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther, otherDisabled }: Props) {
   const cfg = DOMEIN_CONFIG[concept.domein];
   const knownSlugs = new Set(allConcepts.map((c) => c.slug));
 
@@ -152,14 +154,21 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
         )}
 
         {/* ── "Toon ander concept" button ── */}
-        {!isDetail && onOther && (
-          <div className="pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+        {!isDetail && (
+          <div className="pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
             <button
-              onClick={onOther}
-              className="text-sm opacity-50 hover:opacity-100 transition-opacity"
-              style={{ fontFamily: 'system-ui, sans-serif' }}
+              onClick={otherDisabled ? undefined : onOther}
+              disabled={otherDisabled}
+              title={otherDisabled ? 'Geen andere concepten in dit domein' : undefined}
+              className={[
+                'rounded-full border px-4 py-2 text-sm transition-opacity',
+                otherDisabled
+                  ? 'cursor-not-allowed opacity-25'
+                  : 'opacity-60 hover:opacity-100',
+              ].join(' ')}
+              style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
             >
-              Toon ander concept →
+              Toon ander concept
             </button>
           </div>
         )}
