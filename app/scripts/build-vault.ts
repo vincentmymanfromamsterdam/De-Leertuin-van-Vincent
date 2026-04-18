@@ -16,13 +16,20 @@ function stripWikilinks(text: string): string {
   );
 }
 
-async function toHtml(markdown: string): Promise<string> {
+async function toHtml(markdown: string, externalLinksInNewTab = false): Promise<string> {
   const cleaned = stripWikilinks(markdown);
   const result = await remark()
     .use(remarkGfm)
     .use(remarkHtml, { sanitize: false })
     .process(cleaned);
-  return result.toString().trim();
+  let html = result.toString().trim();
+  if (externalLinksInNewTab) {
+    html = html.replace(
+      /<a href="(https?:\/\/[^"]+)"/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer"',
+    );
+  }
+  return html;
 }
 
 /**
@@ -88,6 +95,7 @@ async function buildVault() {
       uitleg: await toHtml(extractSection(body, 'Uitleg')),
       waarom: await toHtml(extractSection(body, 'Waarom het ertoe doet')),
       openVragen: await toHtml(extractSection(body, 'Open vragen')),
+      verder_lezen: await toHtml(extractSection(body, 'Verder lezen'), true),
     });
   }
 

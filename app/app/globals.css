@@ -69,3 +69,16 @@ body {
 .prose :last-child {
   margin-bottom: 0;
 }
+
+/* ─── Verder lezen links ────────────────────────────────────── */
+.prose-verder-lezen a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+.prose-verder-lezen a:hover {
+  opacity: 1;
+  color: var(--fg);
+}

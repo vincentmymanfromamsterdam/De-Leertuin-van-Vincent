@@ -12,4 +12,5 @@ export interface Concept {
   uitleg: string;
   waarom: string;
   openVragen: string;
+  verder_lezen: string;
 }

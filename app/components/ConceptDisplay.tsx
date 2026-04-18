@@ -113,6 +113,38 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
           </section>
         )}
 
+        {/* ── Open vragen ── */}
+        {concept.openVragen && (
+          <section className="mb-8">
+            <h2
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Open vragen
+            </h2>
+            <div
+              className="prose opacity-80"
+              dangerouslySetInnerHTML={{ __html: concept.openVragen }}
+            />
+          </section>
+        )}
+
+        {/* ── Verder lezen ── */}
+        {concept.verder_lezen && (
+          <section className="mb-8">
+            <h2
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Verder lezen
+            </h2>
+            <div
+              className="prose prose-verder-lezen text-sm opacity-70"
+              dangerouslySetInnerHTML={{ __html: concept.verder_lezen }}
+            />
+          </section>
+        )}
+
         {/* ── Gerelateerd ── */}
         {concept.gerelateerd.length > 0 && (
           <section className="mb-10">
