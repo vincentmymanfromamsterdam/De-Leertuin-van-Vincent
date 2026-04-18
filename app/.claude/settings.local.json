@@ -8,7 +8,17 @@
       "Bash(npx tsc:*)",
       "Bash(npm run:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/concept/arche)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/concept/arche)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/explore)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/explore/filosofie)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/explore/overige)",
+      "Bash(curl -s -o /dev/null -w \"/ → %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"/explore → %{http_code}\\\\n\" http://localhost:3000/explore)",
+      "Bash(curl -s -o /dev/null -w \"/explore/filosofie → %{http_code}\\\\n\" http://localhost:3000/explore/filosofie)",
+      "Bash(curl -s -o /dev/null -w \"/explore/overige → %{http_code}\\\\n\" http://localhost:3000/explore/overige)",
+      "Bash(curl -s -o /dev/null -w \"/concept/arche → %{http_code}\\\\n\" http://localhost:3000/concept/arche)",
+      "Bash(python -c ' *)",
+      "Bash(node -e ' *)"
     ]
   }
 }
