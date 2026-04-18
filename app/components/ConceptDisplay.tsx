@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
-import { slugify, DOMEIN_CONFIG } from '@/lib/utils';
+import { slugify, getDomeinConfig } from '@/lib/utils';
+import TodayDate from './TodayDate';
 
 interface Props {
   concept: Concept;
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther, otherDisabled }: Props) {
-  const cfg = DOMEIN_CONFIG[concept.domein];
+  const cfg = getDomeinConfig(concept.domein);
   const knownSlugs = new Set(allConcepts.map((c) => c.slug));
 
   return (
@@ -31,15 +32,27 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
             Leertuin
           </Link>
           {isDetail && (
-            <Link
-              href="/"
-              className="text-sm font-sans opacity-50 hover:opacity-100 transition-opacity"
-              style={{ fontFamily: 'system-ui, sans-serif' }}
-            >
-              ← Vandaag
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/explore"
+                className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+                style={{ fontFamily: 'system-ui, sans-serif' }}
+              >
+                ← Alle concepten
+              </Link>
+              <Link
+                href="/"
+                className="text-sm opacity-50 hover:opacity-100 transition-opacity"
+                style={{ fontFamily: 'system-ui, sans-serif' }}
+              >
+                Vandaag →
+              </Link>
+            </div>
           )}
         </header>
+
+        {/* ── Date (home only) ── */}
+        {!isDetail && <TodayDate />}
 
         {/* ── Domain badge ── */}
         <div className="mb-4">
@@ -153,9 +166,9 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
           </div>
         )}
 
-        {/* ── "Toon ander concept" button ── */}
+        {/* ── Footer (home only) ── */}
         {!isDetail && (
-          <div className="pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
+          <div className="pt-6 border-t flex items-center justify-between" style={{ borderColor: 'var(--border)' }}>
             <button
               onClick={otherDisabled ? undefined : onOther}
               disabled={otherDisabled}
@@ -170,6 +183,13 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
             >
               Toon ander concept
             </button>
+            <Link
+              href="/explore"
+              className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              Verken alle concepten →
+            </Link>
           </div>
         )}
       </div>
