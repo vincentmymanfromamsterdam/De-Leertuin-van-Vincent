@@ -18,7 +18,10 @@
       "Bash(curl -s -o /dev/null -w \"/explore/overige → %{http_code}\\\\n\" http://localhost:3000/explore/overige)",
       "Bash(curl -s -o /dev/null -w \"/concept/arche → %{http_code}\\\\n\" http://localhost:3000/concept/arche)",
       "Bash(python -c ' *)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(mkdir -p \"C:/Users/vinc_/De Leertuin van Vincent/app/app/en/concept/[slug]\")",
+      "Bash(mkdir -p \"C:/Users/vinc_/De Leertuin van Vincent/app/app/en/explore/[domein]\")",
+      "PowerShell($env:ANTHROPIC_API_KEY | ForEach-Object { if \\($_\\) { \"Key found \\(length: \" + $_.Length + \"\\)\" } else { \"Not set\" } })"
     ]
   }
 }
