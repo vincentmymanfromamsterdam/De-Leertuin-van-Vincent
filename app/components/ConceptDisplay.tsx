@@ -3,6 +3,49 @@ import type { Concept } from '@/lib/types';
 import { slugify, getDomeinConfig } from '@/lib/utils';
 import TodayDate from './TodayDate';
 
+// ── UI strings per language ──────────────────────────────────────────────────
+const UI = {
+  nl: {
+    kern: 'Kern',
+    waarom: 'Waarom het ertoe doet',
+    openVragen: 'Open vragen',
+    verderLezen: 'Verder lezen',
+    gerelateerd: 'Gerelateerd',
+    toonAnder: 'Toon ander concept',
+    toonAnderDisabled: 'Geen andere concepten in dit domein',
+    verkenAlle: 'Verken alle concepten →',
+    alleConcepten: '← Alle concepten',
+    vandaag: 'Vandaag →',
+    verken: '← Verken',
+    domein: {
+      filosofie: 'Filosofie',
+      kosmologie: 'Kosmologie',
+      natuur: 'Natuur',
+      overige: 'Overige',
+    },
+  },
+  en: {
+    kern: 'Core idea',
+    waarom: 'Why it matters',
+    openVragen: 'Open questions',
+    verderLezen: 'Further reading',
+    gerelateerd: 'Related',
+    toonAnder: 'Show another concept',
+    toonAnderDisabled: 'No other concepts in this domain',
+    verkenAlle: 'Explore all concepts →',
+    alleConcepten: '← All concepts',
+    vandaag: 'Today →',
+    verken: '← Explore',
+    domein: {
+      filosofie: 'Philosophy',
+      kosmologie: 'Cosmology',
+      natuur: 'Nature',
+      overige: 'Other',
+    },
+  },
+} as const;
+
+// ── Props ────────────────────────────────────────────────────────────────────
 interface Props {
   concept: Concept;
   /** Full concept list — used to decide which gerelateerd items are linkable. */
@@ -12,10 +55,24 @@ interface Props {
   onOther?: () => void;
   /** When true the button renders but is disabled (only one concept in domain). */
   otherDisabled?: boolean;
+  lang?: 'nl' | 'en';
+  /** href to the equivalent page in the other language (shows a language toggle). */
+  langHref?: string;
 }
 
-export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther, otherDisabled }: Props) {
+export default function ConceptDisplay({
+  concept,
+  allConcepts,
+  isDetail,
+  onOther,
+  otherDisabled,
+  lang = 'nl',
+  langHref,
+}: Props) {
+  const L = UI[lang];
+  const base = lang === 'en' ? '/en' : '';
   const cfg = getDomeinConfig(concept.domein);
+  const domainLabel = L.domein[concept.domein as keyof typeof L.domein] ?? cfg.label;
   const knownSlugs = new Set(allConcepts.map((c) => c.slug));
 
   return (
@@ -25,34 +82,45 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
         {/* ── Header ── */}
         <header className="mb-10 flex items-center justify-between">
           <Link
-            href="/"
-            className="text-sm font-sans tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
+            href={base + '/'}
+            className="text-sm tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
             style={{ fontFamily: 'system-ui, sans-serif' }}
           >
             Leertuin
           </Link>
-          {isDetail && (
-            <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
+            {isDetail && (
+              <>
+                <Link
+                  href={`${base}/explore`}
+                  className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+                  style={{ fontFamily: 'system-ui, sans-serif' }}
+                >
+                  {L.alleConcepten}
+                </Link>
+                <Link
+                  href={base + '/'}
+                  className="text-sm opacity-50 hover:opacity-100 transition-opacity"
+                  style={{ fontFamily: 'system-ui, sans-serif' }}
+                >
+                  {L.vandaag}
+                </Link>
+              </>
+            )}
+            {langHref && (
               <Link
-                href="/explore"
-                className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+                href={langHref}
+                className="text-xs font-semibold opacity-30 hover:opacity-80 transition-opacity tracking-widest uppercase"
                 style={{ fontFamily: 'system-ui, sans-serif' }}
               >
-                ← Alle concepten
+                {lang === 'en' ? 'NL' : 'EN'}
               </Link>
-              <Link
-                href="/"
-                className="text-sm opacity-50 hover:opacity-100 transition-opacity"
-                style={{ fontFamily: 'system-ui, sans-serif' }}
-              >
-                Vandaag →
-              </Link>
-            </div>
-          )}
+            )}
+          </div>
         </header>
 
         {/* ── Date (home only) ── */}
-        {!isDetail && <TodayDate />}
+        {!isDetail && <TodayDate lang={lang} />}
 
         {/* ── Domain badge ── */}
         <div className="mb-4">
@@ -60,7 +128,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
             className={`inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase ${cfg.badge}`}
             style={{ fontFamily: 'system-ui, sans-serif' }}
           >
-            {cfg.label}
+            {domainLabel}
           </span>
         </div>
 
@@ -71,14 +139,12 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
 
         {/* ── Kern callout ── */}
         {concept.kern && (
-          <div
-            className={`rounded-lg border-l-4 p-5 mb-8 ${cfg.callout} ${cfg.border}`}
-          >
+          <div className={`rounded-lg border-l-4 p-5 mb-8 ${cfg.callout} ${cfg.border}`}>
             <p
               className="text-xs font-semibold uppercase tracking-widest mb-2 opacity-50"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Kern
+              {L.kern}
             </p>
             <div
               className="prose text-[1rem] leading-relaxed"
@@ -90,10 +156,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
         {/* ── Uitleg ── */}
         {concept.uitleg && (
           <section className="mb-8">
-            <div
-              className="prose"
-              dangerouslySetInnerHTML={{ __html: concept.uitleg }}
-            />
+            <div className="prose" dangerouslySetInnerHTML={{ __html: concept.uitleg }} />
           </section>
         )}
 
@@ -104,7 +167,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
               className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Waarom het ertoe doet
+              {L.waarom}
             </h2>
             <div
               className="prose opacity-80"
@@ -120,7 +183,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
               className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Open vragen
+              {L.openVragen}
             </h2>
             <div
               className="prose opacity-80"
@@ -136,7 +199,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
               className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Verder lezen
+              {L.verderLezen}
             </h2>
             <div
               className="prose prose-verder-lezen text-sm opacity-70"
@@ -152,7 +215,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
               className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-40"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Gerelateerd
+              {L.gerelateerd}
             </p>
             <div className="flex flex-wrap gap-2">
               {concept.gerelateerd.map((name) => {
@@ -163,7 +226,7 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
                 return linked ? (
                   <Link
                     key={name}
-                    href={`/concept/${slug}`}
+                    href={`${base}/concept/${slug}`}
                     className={`${cls} hover:underline`}
                     style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
                   >
@@ -200,27 +263,28 @@ export default function ConceptDisplay({ concept, allConcepts, isDetail, onOther
 
         {/* ── Footer (home only) ── */}
         {!isDetail && (
-          <div className="pt-6 border-t flex items-center justify-between" style={{ borderColor: 'var(--border)' }}>
+          <div
+            className="pt-6 border-t flex items-center justify-between"
+            style={{ borderColor: 'var(--border)' }}
+          >
             <button
               onClick={otherDisabled ? undefined : onOther}
               disabled={otherDisabled}
-              title={otherDisabled ? 'Geen andere concepten in dit domein' : undefined}
+              title={otherDisabled ? L.toonAnderDisabled : undefined}
               className={[
                 'rounded-full border px-4 py-2 text-sm transition-opacity',
-                otherDisabled
-                  ? 'cursor-not-allowed opacity-25'
-                  : 'opacity-60 hover:opacity-100',
+                otherDisabled ? 'cursor-not-allowed opacity-25' : 'opacity-60 hover:opacity-100',
               ].join(' ')}
               style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
             >
-              Toon ander concept
+              {L.toonAnder}
             </button>
             <Link
-              href="/explore"
+              href={`${base}/explore`}
               className="text-sm opacity-40 hover:opacity-100 transition-opacity"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
-              Verken alle concepten →
+              {L.verkenAlle}
             </Link>
           </div>
         )}

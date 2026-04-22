@@ -25,18 +25,24 @@ function pickOldest(pool: Concept[]): Concept {
   })[0];
 }
 
-export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
+interface Props {
+  concepts: Concept[];
+  lang?: 'nl' | 'en';
+  /** href to the equivalent home page in the other language */
+  langHref?: string;
+}
+
+export default function ConceptViewer({ concepts, lang = 'nl', langHref }: Props) {
   const [concept, setConcept] = useState<Concept | null>(null);
   const router = useRouter();
+  const base = lang === 'en' ? '/en' : '';
 
   useEffect(() => {
     if (concepts.length === 0) return;
 
     const domein: Domein | 'random' = getDomeinForDay(new Date());
-
     const pool =
       domein === 'random' ? concepts : concepts.filter((c) => c.domein === domein);
-
     const eligible = pool.length > 0 ? pool : concepts;
     const picked = pickOldest(eligible);
 
@@ -46,16 +52,13 @@ export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
 
   function handleOther() {
     if (!concept) return;
-
     const pool = concepts.filter(
       (c) => c.domein === concept.domein && c.slug !== concept.slug,
     );
     if (pool.length === 0) return;
-
     const next = pool[Math.floor(Math.random() * pool.length)];
     localStorage.setItem(LS_KEY(next.slug), today());
-    // Navigate to the concept's detail page so the URL updates and back-button works.
-    router.push(`/concept/${next.slug}`);
+    router.push(`${base}/concept/${next.slug}`);
   }
 
   if (concepts.length === 0) {
@@ -65,8 +68,11 @@ export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
         style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: 'system-ui, sans-serif' }}
       >
         <p className="opacity-40 text-sm">
-          Vault niet gebuild. Voer{' '}
-          <code className="font-mono">npm run predev</code> uit.
+          {lang === 'en'
+            ? 'Vault not built. Run '
+            : 'Vault niet gebuild. Voer '}
+          <code className="font-mono">npm run predev</code>
+          {lang === 'en' ? '.' : ' uit.'}
         </p>
       </div>
     );
@@ -85,6 +91,8 @@ export default function ConceptViewer({ concepts }: { concepts: Concept[] }) {
       allConcepts={concepts}
       onOther={handleOther}
       otherDisabled={!hasOthers}
+      lang={lang}
+      langHref={langHref}
     />
   );
 }

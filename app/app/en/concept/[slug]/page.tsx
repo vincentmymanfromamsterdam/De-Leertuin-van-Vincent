@@ -3,14 +3,14 @@ import { loadConcepts } from '@/lib/load-concepts';
 import ConceptDisplay from '@/components/ConceptDisplay';
 
 export async function generateStaticParams() {
-  return loadConcepts('nl').map((c) => ({ slug: c.slug }));
+  return loadConcepts('en').map((c) => ({ slug: c.slug }));
 }
 
-export default async function ConceptPage(props: {
+export default async function EnConceptPage(props: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await props.params;
-  const all = loadConcepts('nl');
+  const all = loadConcepts('en');
   const concept = all.find((c) => c.slug === slug);
 
   if (!concept) notFound();
@@ -20,8 +20,8 @@ export default async function ConceptPage(props: {
       concept={concept}
       allConcepts={all}
       isDetail
-      lang="nl"
-      langHref={`/en/concept/${slug}`}
+      lang="en"
+      langHref={`/concept/${slug}`}
     />
   );
 }

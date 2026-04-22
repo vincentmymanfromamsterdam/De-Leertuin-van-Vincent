@@ -2,21 +2,20 @@
 
 import { useState, useEffect } from 'react';
 
-export default function TodayDate() {
+export default function TodayDate({ lang = 'nl' }: { lang?: 'nl' | 'en' }) {
   const [label, setLabel] = useState('');
 
   useEffect(() => {
-    const raw = new Date().toLocaleDateString('nl-NL', {
+    const locale = lang === 'en' ? 'en-GB' : 'nl-NL';
+    const raw = new Date().toLocaleDateString(locale, {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
       year: 'numeric',
     });
-    // Ensure capital first letter (some platforms return lowercase weekday)
     setLabel(raw.charAt(0).toUpperCase() + raw.slice(1));
-  }, []);
+  }, [lang]);
 
-  // Render nothing until hydrated — avoids SSR/client mismatch
   if (!label) return null;
 
   return (

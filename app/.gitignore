@@ -42,3 +42,7 @@ next-env.d.ts
 
 # generated vault data (rebuilt at prebuild/predev)
 /data/
+
+# translations cache IS committed (Vercel uses it without needing ANTHROPIC_API_KEY)
+# only the generated output is ignored
+!/translations/
