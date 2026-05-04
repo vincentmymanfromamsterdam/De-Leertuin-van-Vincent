@@ -13,26 +13,24 @@ aangemaakt: 2026-05-04
 
 # Trophic cascade
 
-## Core idea
+## Core
 What a top predator does at the top of a food web ripples downward and reshapes the entire ecosystem — vegetation, soil, waterways, other species. Remove or add the top predator and the whole picture tips.
 
-## The classics
+## Explanation
+The term was coined in 1980 by the American ecologist Robert Paine, who had been doing fieldwork on it since 1963 in tide pools along the American Pacific coast. Paine experimentally removed starfish (the top predator) from cordoned-off patches of rock and watched what happened: mussels, released from predation, overgrew everything. Other species — limpets, barnacles, algae — disappeared. Biodiversity collapsed. One species, reaching through the web, determined the fate of many.
 
-**Yellowstone, 1995.** Wolves reintroduced after seventy years of absence. Elk had previously grazed undisturbed — staying in one place, cropping willow, cottonwood, and aspen down to nothing. With wolves present, elk became wary: they avoided valleys and riparian zones where they could be cornered. There, the trees recovered. Beavers — which needed willow — returned and built dams. Dams created pools, pools created habitat for fish, birds, and amphibians. The rivers themselves changed course, because vegetated banks eroded less. An entire valley redesigned by a handful of wolves.
+The most famous example came decades later. In 1995, wolves were reintroduced into Yellowstone after seventy years of absence. Elk had previously grazed undisturbed — staying in one place, cropping willow, cottonwood, and aspen down to nothing. With wolves present, elk became wary: they avoided valleys and riparian zones where they could be cornered. There, the trees recovered. Beavers — which needed willow — returned and built dams. Dams created pools, pools created habitat for fish, birds, and amphibians. The rivers themselves changed course, because vegetated banks eroded less. An entire valley redesigned by a handful of wolves.
 
-**Knepp Estate, Sussex.** Isabella Tree and Charlie Burrell let 1,400 hectares of farmland go wild, using large grazers (old-breed cattle, ponies, deer, pigs) as ecosystem architects. No wolves, but the free movement of grazers created a mosaic of thorn scrub, open pasture, and marsh — habitat for turtle doves, purple emperor butterflies, nightingales, and kestrels that had vanished elsewhere in England.
+In England, Isabella Tree and Charlie Burrell did something comparable on the Knepp Estate without wolves. They let 1,400 hectares of farmland go wild, using large grazers (old-breed cattle, ponies, deer, pigs) as ecosystem architects. The free movement of those grazers created a mosaic of thorn scrub, open pasture, and marsh — habitat for rare species such as turtle doves, purple emperor butterflies, and nightingales that had vanished elsewhere in England. Tree describes this story in *Wilding* (2018), one of the most influential rewilding books of the last decade.
 
-## The concept itself
-Robert Paine coined the term in 1980, after fieldwork from 1963 onward with starfish in Pacific tide pools. Remove the starfish (predator), and mussels — released from predation — overgrew everything. Biodiversity collapsed. One species, reaching through the web, determined the fate of many.
+What trophic cascades show is that ecosystems do not need to be managed from above by a human hand. Restore the right links — a top predator, a large grazer, a beaver — and the system regulates itself in ways we often cannot predict.
 
-## What it teaches us about gardens
-Trophic cascades work at every scale. In your garden: less slug control (poison or pellets) sounds bad, but it also poisons the hedgehogs, thrushes, and frogs that eat slugs — and without those predators you get *more* slugs, not fewer. Same logic: a top predator (hedgehog, cat, song thrush) at the top keeps the system balanced. Remove it and you get more pest pressure, not less.
+## Why this matters
+Trophic cascades work at every scale, including in a garden. Slug control with poison sounds logical but also poisons the hedgehogs, thrushes, and frogs that eat slugs — and without those predators you get *more* slugs, not fewer. Same pattern: a top predator (hedgehog, cat, song thrush) at the top keeps the system balanced. Remove it and you get more pest pressure, not less. Thinking in cascades forces you to look further than the immediate intervention — to the whole web of which your garden is one part.
 
-## Connections
-- [[Isabella Tree]] — *Wilding* and the Knepp experiment
-- [[Robert Paine]] — coined the concept
-- [[Ecological succession]] — what happens after a trophic shift
-- [[Wood wide web]] — the other half of the story: underground interactions
+## Open questions
+- How do you identify *which* species is the top predator of a local ecosystem before disturbing it?
+- Do trophic cascades also work from the bottom up — can you reshape an ecosystem by adding a key plant or bacterium?
 
 ## Further reading
 - Tree, *Wilding* (2018) — the Knepp story in book form

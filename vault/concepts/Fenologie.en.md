@@ -13,30 +13,29 @@ aangemaakt: 2026-05-04
 
 # Phenology
 
-## What it is
-Phenology is the study of timing in biology: when does the hawthorn flower, when does the first great tit arrive, when do the swifts return, when do the oak processionary caterpillars hatch. These are the annual appointments of an ecosystem — appointments that must be kept for the system to work.
+## Core
+Phenology is the study of timing in biology: when does the hawthorn flower, when does the first great tit arrive, when do the swifts return. These are the annual appointments of an ecosystem — appointments that must be kept for the system to work.
 
-## Why it suddenly matters
-Climate change is shifting all these appointments. But not by equal amounts. Some species respond to temperature (plants, insects), others to day length (migrant birds). When the two drift apart, a phenological *mismatch* arises: the appointment is missed.
+## Explanation
+The word comes from the Greek: *phaino* (to appear) and *logos* (study of). The name is nineteenth-century but the practice is far older. Japanese court officials kept careful records from the ninth century onward of when the cherry blossom flowered in Kyoto — an unbroken series of 1,200 years of bloom dates, one of the longest climate records we have. In England, Robert Marsham began recording from 1736 when the first blackbird sang and the oak buds opened. His family continued for 200 years. These are the quiet datasets from which we can now read climate change.
+
+The modern urgency of phenology lies in that shifting. Climate change is shifting the appointments — but not by equal amounts. Some species respond to temperature (plants, insects), others to day length (migrant birds). When the two drift apart, a phenological *mismatch* arises: the appointment is missed.
 
 The classic example is the great tit in an oak wood. Oaks come into leaf earlier in warmer springs; the winter-moth caterpillars that feed on those young leaves also hatch earlier; but the great tits time their egg-laying on day length, which has not shifted. When the chicks hatch after the caterpillar peak, there is less food. Breeding success drops. It is not the species that respond badly to warmth that fail first — it is the species whose partners *do* shift.
 
-## In your own garden
-Phenology is the most accessible field in biology. A notebook and a calendar are enough. Record: first snowdrop, first bumblebee (which species?), first blackbird song before dawn, first swallow, date that cow parsley reaches full flower, first hoverfly on the flowering currant. Three years of data and you have your own phenological yearbook; ten years and you see trends in your garden that no one else sees.
+[[Dave Goulson]] describes in *The Garden Jungle* how this is now becoming visible in Dutch and British gardens too. Early pollinators appear before their plants flower. Some moths emerge so early that their caterpillars find no food. The ecosystem is out of phase, and it doesn't restore itself spontaneously — not within a human lifetime.
 
-In the Netherlands, [De Natuurkalender](https://www.naturetoday.com/intl/nl/observations/natuurkalender) has been collecting volunteer observations for over twenty years. You can submit your own.
+In your own garden, phenology is the most accessible field in biology. A notebook and a calendar are enough. Record: first snowdrop, first bumblebee (which species?), first blackbird song before dawn, first swallow, date that cow parsley reaches full flower. Three years of data and you have your own phenological yearbook; ten years and you see trends in your garden that no one else sees. In the Netherlands, [De Natuurkalender](https://www.naturetoday.com/intl/nl/observations/natuurkalender) has been collecting volunteer observations for over twenty years.
 
-## A caveat
-Phenology is *not* the same as "things are early this year again". One warm year says nothing. The shift only becomes visible when you compare your own observations across years — that is the discipline.
+## Why this matters
+Phenology turns climate change from an abstract graph into a personal observation. Not "the average temperature has risen" but "the first bumblebee now appears three weeks earlier than ten years ago". And it makes visible that the problem is not only warmth but coordination — an ecosystem suddenly having to revise centuries-old appointments without the time to do so cleanly. For anyone who watches attentively, a garden is a phenological laboratory issuing a report every year.
 
-## Connections
-- [[Climate change]] — the engine behind recent shifts
-- [[Moths as forgotten pollinators]] — pollinators and plants don't always move in step
-- [[Trophic cascade]] — what happens when one link in a chain falls out of phase
-- [[Wood wide web]] — fungi respond differently to temperature than plants do
+## Open questions
+- How long does it take for species to retune their phenology to one another — generations, centuries, or not at all?
+- Which phenological shifts are reversible if climate change is halted, and which are not?
 
 ## Further reading
 - De Natuurkalender (Netherlands): [naturetoday.com](https://www.naturetoday.com/intl/nl/observations/natuurkalender)
 - Goulson, *The Garden Jungle* (2019) — multiple passages on shifting insect phenology
 - UK Phenology Network: [naturescalendar.woodlandtrust.org.uk](https://naturescalendar.woodlandtrust.org.uk/) — clear visualisations
-- *Nature's Calendar* (BBC) — video archive on the changing seasons
+- Marsham phenological database (1736–): one of the longest personal series in the world, described on the UK Royal Meteorological Society site
