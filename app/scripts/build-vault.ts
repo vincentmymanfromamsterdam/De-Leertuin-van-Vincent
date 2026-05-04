@@ -100,11 +100,11 @@ async function buildVault() {
       const enRaw = fs.readFileSync(enPath, 'utf-8');
       const { data: enData, content: enBody } = matter(enRaw);
       const enTitel = String(enData.titel ?? '');
-      const enKern = await toHtml(extractSection(enBody, 'Kern'));
-      const enUitleg = await toHtml(extractSection(enBody, 'Uitleg'));
-      const enWaarom = await toHtml(extractSection(enBody, 'Waarom het ertoe doet'));
-      const enOpenVragen = await toHtml(extractSection(enBody, 'Open vragen'));
-      const enVerderLezen = await toHtml(extractSection(enBody, 'Verder lezen'), true);
+      const enKern = await toHtml(extractSection(enBody, 'Core') || extractSection(enBody, 'Kern'));
+      const enUitleg = await toHtml(extractSection(enBody, 'Explanation') || extractSection(enBody, 'Uitleg'));
+      const enWaarom = await toHtml(extractSection(enBody, 'Why this matters') || extractSection(enBody, 'Waarom het ertoe doet'));
+      const enOpenVragen = await toHtml(extractSection(enBody, 'Open questions') || extractSection(enBody, 'Open vragen'));
+      const enVerderLezen = await toHtml(extractSection(enBody, 'Further reading') || extractSection(enBody, 'Verder lezen'), true);
       if (enTitel) enFields.titel_en = enTitel;
       if (enKern) enFields.kern_en = enKern;
       if (enUitleg) enFields.uitleg_en = enUitleg;
