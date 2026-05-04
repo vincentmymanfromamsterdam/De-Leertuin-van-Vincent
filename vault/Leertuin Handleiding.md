@@ -6,28 +6,28 @@ Een persoonlijke kennisbasis (Obsidian vault) die een Progressive Web App voedt 
 
 **Live URL:** https://de-leertuin-van-vincent.vercel.app/
 
-\---
+---
 
 ## Architectuur
 
 ```
-C:\\Users\\vinc\_\\De Leertuin van Vincent\\
-├── vault\\                    ← Obsidian vault (kennisbasis)
+C:\Users\vinc_\De Leertuin van Vincent\
+├── vault\                    ← Obsidian vault (kennisbasis)
 │   ├── CLAUDE.md             ← Schema, conventies, workflows
-│   ├── concepts\\             ← Atomic concept-notes (NL + EN)
-│   ├── people\\               ← Personen (filosofen, wetenschappers)
-│   ├── sources\\              ← Bronnen (boeken, video's, documentaires)
-│   ├── observations\\         ← Tuinwaarnemingen (toekomstig)
-│   ├── essays\\               ← Synthese-notes (toekomstig)
-│   ├── MOCs\\                 ← Maps of Content (overzicht-notes)
-│   └── templates\\            ← Note-templates per type
-├── app\\                      ← Next.js PWA (Concept of the Day app)
-│   ├── scripts\\
+│   ├── concepts\             ← Atomic concept-notes (NL + EN)
+│   ├── people\               ← Personen (filosofen, wetenschappers)
+│   ├── sources\              ← Bronnen (boeken, video's, documentaires)
+│   ├── observations\         ← Tuinwaarnemingen (toekomstig)
+│   ├── essays\               ← Synthese-notes (toekomstig)
+│   ├── MOCs\                 ← Maps of Content (overzicht-notes)
+│   └── templates\            ← Note-templates per type
+├── app\                      ← Next.js PWA (Concept of the Day app)
+│   ├── scripts\
 │   │   └── build-vault.ts    ← Parseert vault → concepts.json bij build
-│   ├── data\\
+│   ├── data\
 │   │   └── concepts.json     ← Gegenereerd bij build, niet handmatig bewerken
 │   └── ...                   ← Next.js app code
-├── .git\\                     ← Git repository
+├── .git\                     ← Git repository
 └── .gitignore
 ```
 
@@ -42,7 +42,7 @@ C:\\Users\\vinc\_\\De Leertuin van Vincent\\
          ↓
 4. Vercel detecteert push → start automatisch build
          ↓
-5. Bij build: scripts/build-vault.ts leest vault/concepts/\*.md
+5. Bij build: scripts/build-vault.ts leest vault/concepts/*.md
    → genereert data/concepts.json
          ↓
 6. App is live op https://de-leertuin-van-vincent.vercel.app/
@@ -50,7 +50,7 @@ C:\\Users\\vinc\_\\De Leertuin van Vincent\\
 7. iPhone PWA toont nieuwe content (pull-to-refresh of heropen)
 ```
 
-\---
+---
 
 ## Note-structuur
 
@@ -74,21 +74,21 @@ type: concept
 domein: filosofie | kosmologie | natuur
 titel: "Naam van het concept"
 status: ripe
-tags: \[tag1, tag2, tag3]
-bronnen: \["\[\[Bronnaam]]"]
-gerelateerd: \["\[\[Ander concept]]", "\[\[Nog een concept]]"]
-concept\_of\_day\_eligible: true
-last\_shown: null
+tags: [tag1, tag2, tag3]
+bronnen: ["[[Bronnaam]]"]
+gerelateerd: ["[[Ander concept]]", "[[Nog een concept]]"]
+concept_of_day_eligible: true
+last_shown: null
 aangemaakt: 2026-04-14
 ---
 ```
 
 **Belangrijke velden:**
 
-* `status: ripe` — alleen ripe notes verschijnen in de app
-* `concept\_of\_day\_eligible: true` — moet true zijn om in de rotatie te komen
-* `domein` — bepaalt in welke categorie de note verschijnt en op welke dag
-* `gerelateerd` — `\[\[links]]` naar andere notes, worden klikbare badges in de app
+- `status: ripe` — alleen ripe notes verschijnen in de app
+- `concept_of_day_eligible: true` — moet true zijn om in de rotatie te komen
+- `domein` — bepaalt in welke categorie de note verschijnt en op welke dag
+- `gerelateerd` — `[[links]]` naar andere notes, worden klikbare badges in de app
 
 ### Secties in de note (volgorde)
 
@@ -99,44 +99,55 @@ aangemaakt: 2026-04-14
 Eén tot twee zinnen die het concept vangen.
 
 ## Uitleg
-Volledige uitleg, 200-600 woorden.
+Volledige uitleg, 200-600 woorden. Lengte mag schalen met het onderwerp:
+korte concepten 200-300, complexere onderwerpen tot 600.
 
 ## Waarom het ertoe doet
 Relevantie en verbinding met het grotere geheel.
 
 ## Open vragen
 - Vraag die nieuwsgierigheid wekt
-
-\- Vraag die nieuwsgierigheid wekt
-
-\- Vraag die nieuwsgierigheid wekt
+- Vraag die nieuwsgierigheid wekt
+- (Optioneel) een derde vraag
 
 ## Verder lezen
-- Auteur, \*Boek\*, Hoofdstuk: URL
+- Auteur, *Boek*, Hoofdstuk: URL
 - Andere bron: URL
 ```
 
-De app toont deze secties in exact deze volgorde.
+De app toont deze secties in exact deze volgorde. Mik op 2-3 open vragen — niet meer, niet minder.
 
-\---
+### Engelse `.en.md` bestanden: Engelse kopnamen
+
+Engelse versies gebruiken **Engelse sectie-kopnamen**, niet vertaalde Nederlandse. Het build-script herkent beide en valt automatisch terug op de Nederlandse als de Engelse niet gevonden wordt.
+
+| Nederlands (`.md`) | Engels (`.en.md`) |
+|---|---|
+| `## Kern` | `## Core` |
+| `## Uitleg` | `## Explanation` |
+| `## Waarom het ertoe doet` | `## Why this matters` |
+| `## Open vragen` | `## Open questions` |
+| `## Verder lezen` | `## Further reading` |
+
+---
 
 ## Rotatie-logica
 
 De app kiest het concept van de dag op basis van:
 
-|Dag|Domein|
-|-|-|
-|Maandag|Filosofie|
-|Dinsdag|Kosmologie|
-|Woensdag|Natuur|
-|Donderdag|Filosofie|
-|Vrijdag|Kosmologie|
-|Zaterdag|Natuur|
-|Zondag|Willekeurig|
+| Dag | Domein |
+|-----|--------|
+| Maandag | Filosofie |
+| Dinsdag | Kosmologie |
+| Woensdag | Natuur |
+| Donderdag | Filosofie |
+| Vrijdag | Kosmologie |
+| Zaterdag | Natuur |
+| Zondag | Willekeurig |
 
-Binnen een domein: het concept met de oudste `last\_shown` wordt gekozen (null = nog nooit getoond = hoogste prioriteit). `last\_shown` wordt bijgehouden in localStorage op het apparaat.
+Binnen een domein: het concept met de oudste `last_shown` wordt gekozen (null = nog nooit getoond = hoogste prioriteit). `last_shown` wordt bijgehouden in localStorage op het apparaat.
 
-\---
+---
 
 ## Bronnen (sources)
 
@@ -144,27 +155,27 @@ De vault heeft vaste bronnen per domein. Source-notes staan in `vault/sources/`.
 
 ### Filosofie
 
-|Bron|Auteur|Type|Gratis?|
-|-|-|-|-|
-|A History of Western Philosophy|Bertrand Russell|Boek (PDF)|Ja|
+| Bron | Auteur | Type | Gratis? |
+|------|--------|------|---------|
+| A History of Western Philosophy | Bertrand Russell | Boek (PDF) | Ja |
 
 ### Kosmologie / Natuurkunde
 
-|Bron|Auteur|Type|Gratis?|
-|-|-|-|-|
-|Six Easy Pieces|Richard Feynman|Boek (online)|Ja (Caltech)|
-|Cosmos|Carl Sagan|Boek (PDF)|Ja|
-|The Biggest Ideas in the Universe|Sean Carroll|Videoserie|Ja (YouTube)|
-|BBC-documentaires + boeken|Jim Al-Khalili|Video/boek|Deels (YouTube)|
+| Bron | Auteur | Type | Gratis? |
+|------|--------|------|---------|
+| Six Easy Pieces | Richard Feynman | Boek (online) | Ja (Caltech) |
+| Cosmos | Carl Sagan | Boek (PDF) | Ja |
+| The Biggest Ideas in the Universe | Sean Carroll | Videoserie | Ja (YouTube) |
+| BBC-documentaires + boeken | Jim Al-Khalili | Video/boek | Deels (YouTube) |
 
 ### Natuur / Ecologie
 
-|Bron|Auteur|Type|Gratis?|
-|-|-|-|-|
-|The Garden Jungle|Dave Goulson|Boek|Nee|
-|Entangled Life|Merlin Sheldrake|Boek|Ja (Archive.org)|
+| Bron | Auteur | Type | Gratis? |
+|------|--------|------|---------|
+| The Garden Jungle | Dave Goulson | Boek | Nee |
+| Entangled Life | Merlin Sheldrake | Boek | Ja (Archive.org) |
 
-\---
+---
 
 ## Tweetaligheid
 
@@ -185,7 +196,7 @@ Entropie.en.md     ← Engels
 
 Beide gaan in `vault/concepts/`. Het build-script herkent `.en.md` automatisch en koppelt het aan de Nederlandse versie.
 
-\---
+---
 
 ## Nieuwe content toevoegen
 
@@ -195,11 +206,9 @@ Beide gaan in `vault/concepts/`. Het build-script herkent `.en.md` automatisch e
 2. Claude levert `.md` en `.en.md` bestanden
 3. Download de bestanden
 4. Kopieer naar `vault/concepts/`:
-
-```cmd
-   copy "%USERPROFILE%\\Downloads\\\*.md" "vault\\concepts\\"
+   ```cmd
+   copy "%USERPROFILE%\Downloads\*.md" "vault\concepts\"
    ```
-
 5. Source-notes (indien meegeleverd) → `vault/sources/`
 6. Open GitHub Desktop → Commit + Push
 7. Vercel bouwt automatisch opnieuw (1-2 minuten)
@@ -210,7 +219,7 @@ Beide gaan in `vault/concepts/`. Het build-script herkent `.en.md` automatisch e
 1. Kopieer `vault/templates/concept.md`
 2. Vul frontmatter in (minimaal: type, domein, titel, status, tags)
 3. Begin met `status: seed` tijdens het schrijven
-4. Wanneer klaar: zet op `status: ripe` en `concept\_of\_day\_eligible: true`
+4. Wanneer klaar: zet op `status: ripe` en `concept_of_day_eligible: true`
 5. Maak optioneel een `.en.md` versie
 6. Commit + Push
 
@@ -218,29 +227,33 @@ Beide gaan in `vault/concepts/`. Het build-script herkent `.en.md` automatisch e
 
 Claude schrijft notes direct op `status: ripe` met:
 
-* Kruisverbanden (`\[\[links]]`) naar bestaande en nieuwe notes
-* Bronvermelding in "Verder lezen" met directe URL's
-* Content gebaseerd op de vaste bronnen (Russell, Feynman, Sagan, Carroll, Al-Khalili, Goulson, Sheldrake)
+- Structuur: **Kern → Uitleg → Waarom het ertoe doet → Open vragen → Verder lezen**
+- Uitleg 200-600 woorden, schalend met het onderwerp
+- 2-3 open vragen
+- Kruisverbanden (`[[links]]`) inline in de tekst, niet als aparte sectie
+- Bronvermelding in "Verder lezen" met directe URL's (3-4 items)
+- Content gebaseerd op de vaste bronnen (Russell, Feynman, Sagan, Carroll, Al-Khalili, Goulson, Sheldrake)
+- NL met Nederlandse sectie-kopnamen, EN met Engelse sectie-kopnamen
 
 Je hoeft niet te specificeren:
 
-* Dat het in het Engels ook moet (gebeurt automatisch)
-* Welke bronnen te gebruiken (de vaste set is bekend)
-* Het format (frontmatter, secties, etc.)
+- Dat het in het Engels ook moet (gebeurt automatisch)
+- Welke bronnen te gebruiken (de vaste set is bekend)
+- Het format (frontmatter, secties, etc.)
 
-\---
+---
 
 ## Obsidian-tips
 
 ### Vault openen
 
-Obsidian → Open folder as vault → `C:\\Users\\vinc\_\\De Leertuin van Vincent\\vault`
+Obsidian → Open folder as vault → `C:\Users\vinc_\De Leertuin van Vincent\vault`
 
 ### Handige plugins (optioneel)
 
-* **Dataview** — live query's over je notes (bv. alle seed-notes tonen)
-* **Graph View** (ingebouwd) — visualiseer kruisverbanden tussen notes
-* **Templates** (ingebouwd) — snel nieuwe notes maken vanuit templates
+- **Dataview** — live query's over je notes (bv. alle seed-notes tonen)
+- **Graph View** (ingebouwd) — visualiseer kruisverbanden tussen notes
+- **Templates** (ingebouwd) — snel nieuwe notes maken vanuit templates
 
 ### Dataview voorbeeld: alle seed-notes
 
@@ -253,7 +266,7 @@ SORT file.mtime DESC
 ```
 ````
 
-\---
+---
 
 ## GitHub Desktop workflow
 
@@ -261,29 +274,28 @@ SORT file.mtime DESC
 2. Repository: **De-Leertuin-van-Vincent** (staat linksboven)
 3. Links zie je gewijzigde bestanden
 4. Onderaan links:
-
-   * **Summary**: korte beschrijving (bv. "Add 9 concept notes")
-   * Klik **Commit to main**
+   - **Summary**: korte beschrijving (bv. "Add 9 concept notes")
+   - Klik **Commit to main**
 5. Rechtsboven: klik **Push origin**
 6. Klaar — Vercel bouwt automatisch
 
-\---
+---
 
 ## Vercel
 
-* **Dashboard:** https://vercel.com (inloggen via GitHub)
-* **Project:** De-Leertuin-van-Vincent
-* **Root Directory:** `app`
-* **Auto-deploy:** elke push naar `main` triggert een nieuwe build
-* **Build-tijd:** 1-2 minuten
-* **URL:** https://de-leertuin-van-vincent.vercel.app/
+- **Dashboard:** https://vercel.com (inloggen via GitHub)
+- **Project:** De-Leertuin-van-Vincent
+- **Root Directory:** `app`
+- **Auto-deploy:** elke push naar `main` triggert een nieuwe build
+- **Build-tijd:** 1-2 minuten
+- **URL:** https://de-leertuin-van-vincent.vercel.app/
 
 ### Bij problemen
 
-* Vercel dashboard → Deployments → klik op laatste deployment → zie build-log
-* Meest voorkomende fout: een note met ongeldige frontmatter (missende velden, YAML-fout)
+- Vercel dashboard → Deployments → klik op laatste deployment → zie build-log
+- Meest voorkomende fout: een note met ongeldige frontmatter (missende velden, YAML-fout)
 
-\---
+---
 
 ## PWA op iPhone
 
@@ -296,10 +308,10 @@ SORT file.mtime DESC
 
 ### Updaten na nieuwe deploy
 
-* Safari cache kan oud zijn: sluit PWA volledig af (swipe weg), heropen
-* Bij hardnekkige cache: Instellingen → Safari → Wis websitegegevens → herinstalleer PWA
+- Safari cache kan oud zijn: sluit PWA volledig af (swipe weg), heropen
+- Bij hardnekkige cache: Instellingen → Safari → Wis websitegegevens → herinstalleer PWA
 
-\---
+---
 
 ## Mappenstructuur voor bestanden van Claude
 
@@ -313,19 +325,16 @@ vault/MOCs/         ← Maps of Content
 vault/CLAUDE.md     ← bij updates van het schema
 ```
 
-\---
+---
 
 ## Snelle referentie
 
-|Actie|Hoe|
-|-|-|
-|Nieuwe notes toevoegen|Download → `vault/concepts/` → Commit + Push|
-|App bekijken|https://de-leertuin-van-vincent.vercel.app/|
-|Vault openen|Obsidian → vault-folder|
-|Deploy-status checken|vercel.com → project → deployments|
-|Taalschakelaar|In de app: NL/EN toggle|
-|Ander concept bekijken|"Toon ander concept"-knop in de app|
-|Alle concepten browsen|"Verken alle concepten" link in de app|
-
-
-
+| Actie | Hoe |
+|-------|-----|
+| Nieuwe notes toevoegen | Download → `vault/concepts/` → Commit + Push |
+| App bekijken | https://de-leertuin-van-vincent.vercel.app/ |
+| Vault openen | Obsidian → vault-folder |
+| Deploy-status checken | vercel.com → project → deployments |
+| Taalschakelaar | In de app: NL/EN toggle |
+| Ander concept bekijken | "Toon ander concept"-knop in de app |
+| Alle concepten browsen | "Verken alle concepten" link in de app |
