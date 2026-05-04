@@ -3,36 +3,38 @@ type: concept
 domein: kosmologie
 titel: "The arrow of time"
 status: ripe
-tags: [thermodynamics, time, entropy, fundamental]
-bronnen: ["[[Biggest Ideas - Carroll]]", "[[Six Easy Pieces - Feynman]]"]
-gerelateerd: ["[[Entropie]]", "[[Zwaartekracht en lokale orde]]", "[[Big Bang]]"]
+tags: [thermodynamics, entropy, cosmology, time, statistical-mechanics]
+bronnen: ["[[The Big Picture - Carroll]]", "[[From Eternity to Here - Carroll]]"]
+gerelateerd: ["[[Olbers' paradox]]", "[[Second law of thermodynamics]]", "[[Ludwig Boltzmann]]", "[[Sean Carroll]]", "[[Big Bang]]"]
 concept_of_day_eligible: true
 last_shown: null
-aangemaakt: 2026-04-22
+aangemaakt: 2026-05-04
 ---
 
 # The arrow of time
 
-## Kern
-Nearly all fundamental laws of physics work identically forwards and backwards in time. Yet we experience a clear direction: eggs break but don't reassemble, we remember yesterday but not tomorrow. This asymmetry — the arrow of time — is entirely explained by entropy.
+## The puzzle
+The fundamental laws of physics — Newton's mechanics, Maxwell's electromagnetism, Schrödinger's equation, Einstein's field equations — are nearly all *time-symmetric*. Run a film of moving molecules backwards and the physics still holds. Yet our reality is brutally asymmetric. We remember the past, not the future. Eggs break, they do not unbreak. Coffee cools, it does not spontaneously heat. Where does the arrow come from?
 
-## Uitleg
-Watch a film of two billiard balls colliding. Play it backwards and it still looks perfectly normal — the collision obeys the same laws in both directions. Now do the same with a film of an egg falling and breaking. Playing it backwards looks absurd: shards gathering and forming a whole egg. But the individual atoms in those shards violate no law if they were to regroup. The point is that there are astronomically more ways to be a broken egg than a whole one. The chance that all molecules move in precisely the right direction to restore the egg is not zero, but so vanishingly small that it will never happen in practice.
+## The answer lies in entropy
+The second law of thermodynamics states: in a closed system, entropy (a measure of disorder, or more precisely: the number of microscopic configurations that yield the same macroscopic state) tends to increase. A freshly stacked deck has low entropy — only one way to be that ordered. A shuffled deck has high entropy — astronomically many ways to be "shuffled". Shuffling is therefore statistically easy; un-shuffling is statistically impossible.
 
-That is the arrow of time: not a fundamental law, but a statistical overwhelming. The universe moves from less probable states (low entropy) to more probable states (high entropy), simply because there are more of the latter.
+But this alone explains the arrow only forwards. Boltzmann saw it: the law works symmetrically — a low-entropy system evolves toward higher entropy *in both directions in time*, statistically. Why does the arrow then point in only one direction in practice?
 
-Carroll takes it a step further. He argues that everything we associate with "time moves forward" — memory, causality, ageing, the feeling that the past is fixed and the future open — can be traced back to entropy increase. Memory, for instance, only works because our brain is a low-entropy structure containing correlations with the past. The reason we remember the past but not the future is the same reason eggs break but don't heal: the past had lower entropy.
+## The Past Hypothesis
+The answer is cosmological: our universe began in a state of extremely low entropy. The Big Bang was not only hot and dense, it was also strikingly *ordered*. From that starting point, entropy can only go up. The arrow of time in your kitchen is a direct imprint of the initial condition of the entire universe 13.8 billion years ago. This is called the Past Hypothesis (Albert, Carroll), and it is itself unexplained — a given, not a consequence.
 
-And why did the past have lower entropy? Because the universe began in a state of extremely low entropy — the Big Bang. The arrow of time is ultimately a cosmological fact, not a local phenomenon.
+## Why this matters
+Time feels obvious. It isn't. The simple daily experience that the past is fixed and the future is open is a *cosmological* fact, not a *local* one. Sean Carroll calls this one of the deepest open questions in physics: why did the Big Bang have such an incredibly low entropy? That is not answered. We know that it did, not why.
 
-## Waarom het ertoe doet
-It changes how you think about time. Time doesn't "pass" because a cosmic clock is ticking, but because the universe evolves from less to more probable. We are in the middle of that process and experience it as "time moves forward."
+## Connections
+- [[Second law of thermodynamics]] — the lawlike skeleton
+- [[Ludwig Boltzmann]] — the pioneer who set his mind on this and ultimately lost it
+- [[Big Bang]] — the source of the low-entropy initial state
+- [[Olbers' paradox]] — the other hint that our universe was not always in its current state
 
-## Open vragen
-- If the arrow of time depends on entropy, and the universe eventually reaches maximum entropy (heat death) — does time effectively stop?
-- Could there be a universe in which the arrow of time points the other way?
-
-## Verder lezen
-- Carroll, *Biggest Ideas* #5 (Time): https://www.preposterousuniverse.com/biggestideas/videos/
-- Carroll, *From Eternity to Here* (2010) — the definitive book on the arrow of time
-- Feynman, *Six Easy Pieces*, Piece 4 (Conservation of Energy): https://www.feynmanlectures.caltech.edu/I_04.html
+## Further reading
+- Carroll, *From Eternity to Here* (2010) — book-length treatment, accessible
+- Carroll, *The Big Picture* (2016), chapter on time
+- Carroll's [Mindscape podcast](https://www.preposterousuniverse.com/podcast/) — several episodes on the arrow of time
+- Boltzmann's puzzle on Wikipedia: "[Loschmidt's paradox](https://en.wikipedia.org/wiki/Loschmidt%27s_paradox)"

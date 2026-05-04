@@ -3,36 +3,38 @@ type: concept
 domein: kosmologie
 titel: "De pijl van de tijd"
 status: ripe
-tags: [thermodynamica, tijd, entropie, fundamenteel]
-bronnen: ["[[Biggest Ideas - Carroll]]", "[[Six Easy Pieces - Feynman]]"]
-gerelateerd: ["[[Entropie]]", "[[Zwaartekracht en lokale orde]]", "[[Big Bang]]"]
+tags: [thermodynamica, entropie, kosmologie, tijd, statistische-mechanica]
+bronnen: ["[[The Big Picture - Carroll]]", "[[From Eternity to Here - Carroll]]"]
+gerelateerd: ["[[Olbers' paradox]]", "[[Tweede hoofdwet van de thermodynamica]]", "[[Ludwig Boltzmann]]", "[[Sean Carroll]]", "[[Big Bang]]"]
 concept_of_day_eligible: true
 last_shown: null
-aangemaakt: 2026-04-22
+aangemaakt: 2026-05-04
 ---
 
 # De pijl van de tijd
 
-## Kern
-Bijna alle fundamentele wetten van de fysica werken identiek vooruit en achteruit in de tijd. Toch ervaren wij een duidelijke richting: eieren breken maar repareren zichzelf niet, we herinneren gisteren maar niet morgen. Die asymmetrie — de pijl van de tijd — wordt volledig verklaard door [[Entropie]].
+## Het raadsel
+De fundamentele wetten van de natuurkunde — Newton's mechanica, Maxwell's elektromagnetisme, Schrödinger's vergelijking, Einsteins veldvergelijkingen — zijn vrijwel allemaal *tijdsymmetrisch*. Speel een filmpje van bewegende moleculen achterstevoren af en de fysica klopt nog. Maar onze werkelijkheid is bruut asymmetrisch. We onthouden het verleden, niet de toekomst. Eieren breken, ze repareren niet. Koffie koelt af, hij verwarmt niet spontaan. Waar komt die pijl vandaan?
 
-## Uitleg
-Bekijk een filmpje van twee biljartballen die botsen. Speel het achteruit af en het ziet er nog steeds volkomen normaal uit — de botsing gehoorzaamt dezelfde wetten in beide richtingen. Doe hetzelfde met een filmpje van een ei dat op de grond valt en breekt. Achteruit afspelen ziet er absurd uit: scherven die zich verzamelen en een heel ei vormen. Maar de individuele atomen in die scherven overtreden geen enkele wet als ze zich zouden hergroeperen. Het punt is dat het er astronomisch veel meer manieren zijn om een gebroken ei te zijn dan een heel ei. De kans dat alle moleculen precies de juiste richting op bewegen om het ei te herstellen is niet nul, maar zo verschrikkelijk klein dat het in de praktijk nooit zal gebeuren.
+## Het antwoord ligt in entropie
+De tweede hoofdwet van de thermodynamica zegt: in een gesloten systeem neemt entropie (een maat voor wanorde, of preciezer: het aantal microscopische configuraties dat dezelfde macroscopische toestand oplevert) gemiddeld toe. Een net opgestapeld kaartspel heeft lage entropie — slechts één manier om zo geordend te zijn. Een geschud spel heeft hoge entropie — astronomisch veel manieren om "geschud" te zijn. Schudden gaat dus statistisch gemakkelijk; ontschudden statistisch onmogelijk.
 
-Dat is de pijl van de tijd: niet een fundamentele wet, maar een statistisch overwicht. Het heelal beweegt van minder waarschijnlijke toestanden (lage [[Entropie]]) naar meer waarschijnlijke toestanden (hoge entropie), simpelweg omdat er meer van die laatste zijn.
+Maar dit verklaart de pijl alleen voor*waarts*. Boltzmann zag het al: de wet werkt symmetrisch — een lage-entropie systeem evolueert naar hoge entropie *zowel in de toekomst als in het verleden*, statistisch gezien. Waarom wijst de pijl in de praktijk dan maar één kant op?
 
-Carroll gaat een stap verder. Hij beargumenteert dat álles wat we associëren met "de tijd gaat vooruit" — herinnering, causaliteit, veroudering, het gevoel dat het verleden vast ligt en de toekomst open is — terug te voeren is op entropie-toename. Herinnering werkt bijvoorbeeld alleen omdat ons brein een laag-entropie-structuur is die correlaties bevat met het verleden. De reden dat we het verleden herinneren maar niet de toekomst is dezelfde reden dat eieren breken maar niet helen: het verleden had lagere entropie.
+## De Past Hypothesis
+Het antwoord is kosmologisch: ons universum begon in een toestand van extreem lage entropie. De Big Bang was niet alleen heet en dicht, hij was bovendien opvallend *geordend*. Vanuit dat startpunt kan entropie alleen omhoog. De pijl van de tijd in onze keuken is een directe afdruk van de begintoestand van het hele universum 13,8 miljard jaar geleden. Dit heet de Past Hypothesis (Albert, Carroll), en is zelf onverklaard — een gegeven, geen gevolg.
 
-En waarom had het verleden lagere entropie? Omdat het heelal begon in een toestand van extreem lage entropie — de [[Big Bang]]. De pijl van de tijd is uiteindelijk een kosmologisch feit, niet een lokaal fenomeen.
+## Waarom dit ertoe doet
+Tijd voelt vanzelfsprekend. Dat is ze niet. De simpele dagelijkse ervaring dat verleden vastligt en toekomst openligt, is een *kosmologisch* feit, geen *lokaal* feit. Sean Carroll noemt dit een van de diepste open vragen in de fysica: waarom had de Big Bang zo'n ongelofelijk lage entropie? Dat is niet beantwoord. We weten dát, niet waarom.
 
-## Waarom het ertoe doet
-Het verandert hoe je over tijd denkt. Tijd "verstrijkt" niet omdat er een kosmische klok tikt, maar omdat het heelal evolueert van minder naar meer waarschijnlijk. Wij zitten midden in dat proces en ervaren het als "de tijd gaat vooruit."
-
-## Open vragen
-- Als de pijl van de tijd afhangt van entropie, en het heelal ooit maximale entropie bereikt (warmtedood) — stopt de tijd dan effectief?
-- Kan er een heelal bestaan waarin de pijl van de tijd de andere kant op wijst?
+## Verbindingen
+- [[Tweede hoofdwet van de thermodynamica]] — het wettische skelet
+- [[Ludwig Boltzmann]] — de pionier die hier zijn verstand op zette en uiteindelijk verloor
+- [[Big Bang]] — de bron van de lage-entropie begintoestand
+- [[Olbers' paradox]] — de andere hint dat ons universum niet altijd in zijn huidige toestand verkeerde
 
 ## Verder lezen
-- Carroll, *Biggest Ideas* #5 (Time): https://www.preposterousuniverse.com/biggestideas/videos/
-- Carroll, *From Eternity to Here* (2010) — het definitieve boek over de pijl van de tijd
-- Feynman, *Six Easy Pieces*, Piece 4 (Conservation of Energy): https://www.feynmanlectures.caltech.edu/I_04.html
+- Carroll, *From Eternity to Here* (2010) — boek-lengte uitwerking, toegankelijk
+- Carroll, *The Big Picture* (2016), hoofdstuk over tijd
+- Carroll's [Mindscape podcast](https://www.preposterousuniverse.com/podcast/) — meerdere afleveringen over de pijl van de tijd
+- Boltzmann's gedachten op Wikipedia: "[Loschmidt's paradox](https://en.wikipedia.org/wiki/Loschmidt%27s_paradox)"
