@@ -1,4 +1,4 @@
-export type Domein = 'filosofie' | 'kosmologie' | 'natuur';
+export type Domein = 'filosofie' | 'kosmologie' | 'natuur' | 'fysica';
 
 export interface Concept {
   slug: string;

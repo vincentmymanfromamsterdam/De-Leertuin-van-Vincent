@@ -19,7 +19,7 @@ export function getDomeinForDay(date: Date): Domein | 'random' {
     3: 'natuur',
     4: 'filosofie',
     5: 'kosmologie',
-    6: 'natuur',
+    6: 'fysica',
     0: 'random',
   };
   return schedule[date.getDay()];
@@ -57,6 +57,13 @@ export const DOMEIN_CONFIG: Record<Domein, DomeinConfig> = {
     callout: 'bg-emerald-50 dark:bg-emerald-950/40',
     border: 'border-emerald-300 dark:border-emerald-700',
     card: 'border-emerald-200 dark:border-emerald-900/60 hover:border-emerald-400 dark:hover:border-emerald-700',
+  },
+  fysica: {
+    label: 'Fysica',
+    badge: 'bg-violet-100 text-violet-900 dark:bg-violet-900/25 dark:text-violet-300',
+    callout: 'bg-violet-50 dark:bg-violet-950/40',
+    border: 'border-violet-300 dark:border-violet-700',
+    card: 'border-violet-200 dark:border-violet-900/60 hover:border-violet-400 dark:hover:border-violet-700',
   },
 };
 

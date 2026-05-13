@@ -5,8 +5,8 @@ import { DOMEIN_CONFIG, OVERIGE_CONFIG } from '@/lib/utils';
 import { loadConcepts } from '@/lib/load-concepts';
 import type { DomeinAll } from '@/lib/utils';
 
-const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'overige'] as const;
-const CORE_DOMEINEN = ['filosofie', 'kosmologie', 'natuur'] as const;
+const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica', 'overige'] as const;
+const CORE_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica'] as const;
 
 function getConfig(domein: DomeinAll) {
   return domein === 'overige' ? OVERIGE_CONFIG : DOMEIN_CONFIG[domein];

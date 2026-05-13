@@ -4,9 +4,9 @@ import { DOMEIN_CONFIG, OVERIGE_CONFIG } from '@/lib/utils';
 import type { DomeinAll } from '@/lib/utils';
 import { loadConcepts } from '@/lib/load-concepts';
 
-const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur'] as const;
+const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica'] as const;
 
-const DOMAIN_ORDER: DomeinAll[] = ['filosofie', 'kosmologie', 'natuur', 'overige'];
+const DOMAIN_ORDER: DomeinAll[] = ['filosofie', 'kosmologie', 'natuur', 'fysica', 'overige'];
 
 function countForDomain(concepts: Concept[], domein: DomeinAll): number {
   if (domein === 'overige') {

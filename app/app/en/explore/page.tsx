@@ -4,13 +4,14 @@ import { DOMEIN_CONFIG, OVERIGE_CONFIG } from '@/lib/utils';
 import type { DomeinAll } from '@/lib/utils';
 import { loadConcepts } from '@/lib/load-concepts';
 
-const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur'] as const;
-const DOMAIN_ORDER: DomeinAll[] = ['filosofie', 'kosmologie', 'natuur', 'overige'];
+const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica'] as const;
+const DOMAIN_ORDER: DomeinAll[] = ['filosofie', 'kosmologie', 'natuur', 'fysica', 'overige'];
 
 const EN_LABEL: Record<DomeinAll, string> = {
   filosofie: 'Philosophy',
   kosmologie: 'Cosmology',
   natuur: 'Nature',
+  fysica: 'Physics',
   overige: 'Other',
 };
 
