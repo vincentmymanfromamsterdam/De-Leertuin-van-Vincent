@@ -1,6 +1,6 @@
 ---
 type: concept
-domein: kosmologie
+domein: fysica
 titel: "Noether's theorema"
 status: ripe
 tags: [symmetrie, behoudswetten, wiskunde, fundamenteel]

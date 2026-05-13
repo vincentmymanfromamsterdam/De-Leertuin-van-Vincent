@@ -1,6 +1,6 @@
 ---
 type: concept
-domein: kosmologie
+domein: fysica
 titel: "The arrow of time"
 status: ripe
 tags: [thermodynamics, entropy, cosmology, time, statistical-mechanics]

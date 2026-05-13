@@ -2,7 +2,7 @@
 
 ## Wat is het?
 
-Een persoonlijke kennisbasis (Obsidian vault) die een Progressive Web App voedt op je iPhone. Elke dag toont de app één concept uit drie domeinen: **filosofie**, **kosmologie** en **natuur**. Van daaruit kun je doorklikken naar gerelateerde concepten (zoals Wikipedia) of via de bronvermelding dieper duiken in het originele materiaal.
+Een persoonlijke kennisbasis (Obsidian vault) die een Progressive Web App voedt op je iPhone. Elke dag toont de app één concept uit vier domeinen: **filosofie**, **kosmologie**, **fysica** en **natuur**. Van daaruit kun je doorklikken naar gerelateerde concepten (zoals Wikipedia) of via de bronvermelding dieper duiken in het originele materiaal.
 
 **Live URL:** https://de-leertuin-van-vincent.vercel.app/
 
@@ -71,7 +71,7 @@ De `.en.md` versie moet **exact dezelfde bestandsnaam** hebben als de Nederlands
 ```yaml
 ---
 type: concept
-domein: filosofie | kosmologie | natuur
+domein: filosofie | kosmologie | fysica | natuur
 titel: "Naam van het concept"
 status: ripe
 tags: [tag1, tag2, tag3]
@@ -142,7 +142,7 @@ De app kiest het concept van de dag op basis van:
 | Woensdag | Natuur |
 | Donderdag | Filosofie |
 | Vrijdag | Kosmologie |
-| Zaterdag | Natuur |
+| Zaterdag | Fysica |
 | Zondag | Willekeurig |
 
 Binnen een domein: het concept met de oudste `last_shown` wordt gekozen (null = nog nooit getoond = hoogste prioriteit). `last_shown` wordt bijgehouden in localStorage op het apparaat.
@@ -159,14 +159,25 @@ De vault heeft vaste bronnen per domein. Source-notes staan in `vault/sources/`.
 |------|--------|------|---------|
 | A History of Western Philosophy | Bertrand Russell | Boek (PDF) | Ja |
 
-### Kosmologie / Natuurkunde
+### Kosmologie
+
+| Bron | Auteur | Type | Gratis? |
+|------|--------|------|---------|
+| Cosmos | Carl Sagan | Boek (PDF) | Ja |
+| The Biggest Ideas in the Universe | Sean Carroll | Videoserie | Ja (YouTube) |
+| BBC-documentaires + boeken | Jim Al-Khalili | Video/boek | Deels (YouTube) |
+
+### Fysica
 
 | Bron | Auteur | Type | Gratis? |
 |------|--------|------|---------|
 | Six Easy Pieces | Richard Feynman | Boek (online) | Ja (Caltech) |
-| Cosmos | Carl Sagan | Boek (PDF) | Ja |
+| Feynman Lectures on Physics, Vol I | Richard Feynman | Boek (online) | Ja (Caltech) |
 | The Biggest Ideas in the Universe | Sean Carroll | Videoserie | Ja (YouTube) |
-| BBC-documentaires + boeken | Jim Al-Khalili | Video/boek | Deels (YouTube) |
+| HyperPhysics | Georgia State University | Referentie-site | Ja |
+| To Explain the World | Steven Weinberg | Boek | Nee |
+
+*Carroll's videoserie is bewust dubbel-gelabeld: ze raakt zowel kosmologie als fundamentele fysica.*
 
 ### Natuur / Ecologie
 
@@ -232,13 +243,13 @@ Claude schrijft notes direct op `status: ripe` met:
 - 2-3 open vragen
 - Kruisverbanden (`[[links]]`) inline in de tekst, niet als aparte sectie
 - Bronvermelding in "Verder lezen" met directe URL's (3-4 items)
-- Content gebaseerd op de vaste bronnen (Russell, Feynman, Sagan, Carroll, Al-Khalili, Goulson, Sheldrake)
+- Content gebaseerd op de vaste bronnen per domein
 - NL met Nederlandse sectie-kopnamen, EN met Engelse sectie-kopnamen
 
 Je hoeft niet te specificeren:
 
 - Dat het in het Engels ook moet (gebeurt automatisch)
-- Welke bronnen te gebruiken (de vaste set is bekend)
+- Welke bronnen te gebruiken (de vaste set per domein is bekend)
 - Het format (frontmatter, secties, etc.)
 
 ---

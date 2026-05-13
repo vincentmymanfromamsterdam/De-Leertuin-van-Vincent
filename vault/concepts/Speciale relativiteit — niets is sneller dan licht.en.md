@@ -1,6 +1,6 @@
 ---
 type: concept
-domein: kosmologie
+domein: fysica
 titel: "Special relativity — nothing is faster than light"
 status: ripe
 tags: [relativity, einstein, light, time, space]

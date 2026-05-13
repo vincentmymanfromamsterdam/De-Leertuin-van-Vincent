@@ -1,6 +1,6 @@
 ---
 type: concept
-domein: kosmologie
+domein: fysica
 titel: "Speciale relativiteit — niets is sneller dan licht"
 status: ripe
 tags: [relativiteit, einstein, licht, tijd, ruimte]

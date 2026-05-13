@@ -1,6 +1,6 @@
 ---
 type: concept
-domein: kosmologie
+domein: fysica
 titel: "De pijl van de tijd"
 status: ripe
 tags: [thermodynamica, entropie, kosmologie, tijd, statistische-mechanica]
