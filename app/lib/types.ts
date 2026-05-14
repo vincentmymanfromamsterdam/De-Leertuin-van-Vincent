@@ -1,4 +1,13 @@
-export type Domein = 'filosofie' | 'kosmologie' | 'natuur' | 'fysica';
+/**
+ * The shape of a concept as stored in data/concepts.json.
+ *
+ * The fixed fields below mirror the section keys in your config.
+ * Secondary-language content lives under dynamic keys like
+ * `${field}_${langCode}`, e.g. `kern_en`, `titel_de`.
+ */
+
+/** Free-form string — validated against your config at build time. */
+export type Domein = string;
 
 export interface Concept {
   slug: string;
@@ -13,11 +22,6 @@ export interface Concept {
   waarom: string;
   openVragen: string;
   verder_lezen: string;
-  // Optional English content (from <slug>.en.md in the vault)
-  titel_en?: string;
-  kern_en?: string;
-  uitleg_en?: string;
-  waarom_en?: string;
-  openVragen_en?: string;
-  verder_lezen_en?: string;
+  /** Dynamic secondary-language fields: titel_en, kern_en, kern_de, etc. */
+  [key: string]: unknown;
 }

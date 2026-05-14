@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import type { Concept, Domein } from '@/lib/types';
-import { getDomeinForDay } from '@/lib/utils';
+import type { Concept } from '@/lib/types';
+import { getDomeinForDay, config } from '@/lib/utils';
 import ConceptDisplay from './ConceptDisplay';
 
 const LS_KEY = (slug: string) => `leertuin_last_shown_${slug}`;
@@ -27,20 +27,21 @@ function pickOldest(pool: Concept[]): Concept {
 
 interface Props {
   concepts: Concept[];
-  lang?: 'nl' | 'en';
+  lang?: string;
   /** href to the equivalent home page in the other language */
   langHref?: string;
 }
 
-export default function ConceptViewer({ concepts, lang = 'nl', langHref }: Props) {
+export default function ConceptViewer({ concepts, lang = config.languages.primary, langHref }: Props) {
   const [concept, setConcept] = useState<Concept | null>(null);
   const router = useRouter();
-  const base = lang === 'en' ? '/en' : '';
+  const isSecondary = lang !== config.languages.primary;
+  const base = isSecondary ? `/${lang}` : '';
 
   useEffect(() => {
     if (concepts.length === 0) return;
 
-    const domein: Domein | 'random' = getDomeinForDay(new Date());
+    const domein = getDomeinForDay(new Date());
     const pool =
       domein === 'random' ? concepts : concepts.filter((c) => c.domein === domein);
     const eligible = pool.length > 0 ? pool : concepts;
@@ -68,11 +69,11 @@ export default function ConceptViewer({ concepts, lang = 'nl', langHref }: Props
         style={{ background: 'var(--bg)', color: 'var(--fg)', fontFamily: 'system-ui, sans-serif' }}
       >
         <p className="opacity-40 text-sm">
-          {lang === 'en'
+          {isSecondary
             ? 'Vault not built. Run '
             : 'Vault niet gebuild. Voer '}
           <code className="font-mono">npm run predev</code>
-          {lang === 'en' ? '.' : ' uit.'}
+          {isSecondary ? '.' : ' uit.'}
         </p>
       </div>
     );

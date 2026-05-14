@@ -1,12 +1,23 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { config } from '@/lib/utils';
 
-export default function TodayDate({ lang = 'nl' }: { lang?: 'nl' | 'en' }) {
+/** Maps a language code to a BCP-47 locale for date formatting. */
+const LOCALE: Record<string, string> = {
+  nl: 'nl-NL',
+  en: 'en-GB',
+  de: 'de-DE',
+  fr: 'fr-FR',
+  es: 'es-ES',
+  it: 'it-IT',
+};
+
+export default function TodayDate({ lang = config.languages.primary }: { lang?: string }) {
   const [label, setLabel] = useState('');
 
   useEffect(() => {
-    const locale = lang === 'en' ? 'en-GB' : 'nl-NL';
+    const locale = LOCALE[lang] ?? lang;
     const raw = new Date().toLocaleDateString(locale, {
       weekday: 'long',
       day: 'numeric',

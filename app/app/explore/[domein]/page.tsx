@@ -1,91 +1,75 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
-import { DOMEIN_CONFIG, OVERIGE_CONFIG } from '@/lib/utils';
+import { config, getDomain, getDomainKeys, tailwindClassesFor } from '@/lib/config';
 import { loadConcepts } from '@/lib/load-concepts';
-import type { DomeinAll } from '@/lib/utils';
 
-const KNOWN_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica', 'overige'] as const;
-const CORE_DOMEINEN = ['filosofie', 'kosmologie', 'natuur', 'fysica'] as const;
-
-function getConfig(domein: DomeinAll) {
-  return domein === 'overige' ? OVERIGE_CONFIG : DOMEIN_CONFIG[domein];
-}
-
-function filterByDomain(concepts: Concept[], domein: DomeinAll): Concept[] {
-  if (domein === 'overige') {
-    return concepts.filter((c) => !(CORE_DOMEINEN as readonly string[]).includes(c.domein));
-  }
-  return concepts.filter((c) => c.domein === domein);
-}
-
-/** Strip HTML tags for a plain-text preview. */
 function toPlainText(html: string): string {
   return html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
 }
 
-export async function generateStaticParams() {
-  return KNOWN_DOMEINEN.map((d) => ({ domein: d }));
+export function generateStaticParams() {
+  return getDomainKeys().map((d) => ({ domein: d }));
 }
 
 export default async function ExploreDomeinPage(props: {
   params: Promise<{ domein: string }>;
 }) {
   const { domein } = await props.params;
+  const lang = config.languages.primary;
+  const L = config.ui[lang];
 
-  if (!(KNOWN_DOMEINEN as readonly string[]).includes(domein)) notFound();
+  const domain = getDomain(domein);
+  if (!domain) notFound();
 
-  const d = domein as DomeinAll;
-  const cfg = getConfig(d);
-  const all = loadConcepts('nl');
-  const concepts = filterByDomain(all, d).sort((a, b) =>
-    a.titel.localeCompare(b.titel, 'nl')
-  );
+  const cfg = tailwindClassesFor(domain.color);
+  const label = domain.label[lang];
+  const all = loadConcepts(lang);
+  const concepts = all
+    .filter((c) => c.domein === domein)
+    .sort((a, b) => a.titel.localeCompare(b.titel, lang));
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
       <div className="mx-auto max-w-[680px] px-5 py-10 pb-20">
 
-        {/* ── Header ── */}
         <header className="mb-10 flex items-center justify-between">
           <Link
             href="/"
             className="text-sm tracking-widest uppercase opacity-50 hover:opacity-100 transition-opacity"
             style={{ fontFamily: 'system-ui, sans-serif' }}
           >
-            Leertuin
+            {config.brand.name}
           </Link>
           <Link
             href="/explore"
             className="text-sm opacity-40 hover:opacity-100 transition-opacity"
             style={{ fontFamily: 'system-ui, sans-serif' }}
           >
-            ← Verken
+            {L.brandLink}
           </Link>
         </header>
 
-        {/* ── Domain badge + title ── */}
         <div className="mb-3">
           <span
             className={`inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase ${cfg.badge}`}
             style={{ fontFamily: 'system-ui, sans-serif' }}
           >
-            {cfg.label}
+            {label}
           </span>
         </div>
-        <h1 className="text-3xl font-semibold mb-1 tracking-tight">{cfg.label}</h1>
+        <h1 className="text-3xl font-semibold mb-1 tracking-tight">{label}</h1>
         <p className="text-sm mb-10 opacity-40" style={{ fontFamily: 'system-ui, sans-serif' }}>
-          {concepts.length} {concepts.length === 1 ? 'concept' : 'concepten'}
+          {concepts.length} {concepts.length === 1 ? L.conceptSingular : L.conceptPlural}
         </p>
 
-        {/* ── Concept list ── */}
         {concepts.length === 0 ? (
           <p className="opacity-40 text-sm" style={{ fontFamily: 'system-ui, sans-serif' }}>
-            Nog geen concepten in dit domein.
+            {L.emptyDomain}
           </p>
         ) : (
           <ul>
-            {concepts.map((concept) => {
+            {concepts.map((concept: Concept) => {
               const preview = toPlainText(concept.kern);
               return (
                 <li key={concept.slug} className="border-b" style={{ borderColor: 'var(--border)' }}>

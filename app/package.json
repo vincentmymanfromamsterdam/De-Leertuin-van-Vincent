@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "tsx scripts/build-vault.ts && tsx scripts/translate-vault.ts",
+    "predev": "tsx scripts/build-vault.ts",
     "dev": "next dev",
     "dev:network": "next dev -H 0.0.0.0",
     "translate": "tsx scripts/translate-vault.ts",
-    "prebuild": "tsx scripts/build-vault.ts && tsx scripts/translate-vault.ts",
+    "prebuild": "tsx scripts/build-vault.ts",
     "build": "next build",
     "start": "next start"
   },

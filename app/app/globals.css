@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* ─── Domain color palette safelist ─────────────────────────────
+ * The 12 palette colors used in leertuin.config.ts must each be
+ * present in the generated CSS even if no source file references
+ * them statically (because tailwindClassesFor() composes class
+ * names with template literals).
+ */
+@source inline("{,hover:,dark:,dark:hover:}{bg,text,border}-{amber,indigo,emerald,violet,rose,teal,cyan,sky,lime,fuchsia,orange,slate}-{50,100,200,300,400,700,900}");
+@source inline("dark:bg-{amber,indigo,emerald,violet,rose,teal,cyan,sky,lime,fuchsia,orange,slate}-{900,950}/{25,40,60}");
+
 /* ─── Colour tokens ─────────────────────────────────────────── */
 :root {
   --bg: #faf8f4;

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Source_Serif_4 } from 'next/font/google';
 import './globals.css';
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
+import { config } from '@/lib/config';
 
 const serif = Source_Serif_4({
   subsets: ['latin'],
@@ -12,12 +13,12 @@ const serif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: 'Leertuin',
-  description: 'Concept van de dag uit je persoonlijke kennisbasis',
+  title: config.brand.name,
+  description: config.brand.tagline,
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
-    title: 'Leertuin',
+    title: config.brand.name,
     statusBarStyle: 'default',
   },
   icons: {
@@ -36,7 +37,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl" className={serif.variable}>
+    <html lang={config.languages.primary} className={serif.variable}>
       <body>
         <ServiceWorkerRegistration />
         {children}

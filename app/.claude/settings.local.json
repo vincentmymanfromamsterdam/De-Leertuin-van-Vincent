@@ -22,7 +22,10 @@
       "Bash(mkdir -p \"C:/Users/vinc_/De Leertuin van Vincent/app/app/en/concept/[slug]\")",
       "Bash(mkdir -p \"C:/Users/vinc_/De Leertuin van Vincent/app/app/en/explore/[domein]\")",
       "PowerShell($env:ANTHROPIC_API_KEY | ForEach-Object { if \\($_\\) { \"Key found \\(length: \" + $_.Length + \"\\)\" } else { \"Not set\" } })",
-      "Bash(grep -rl \"domein: fysica\" \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\vault\\\\concepts\\\\\" 2>/dev/null || echo \"geen fysica-notes gevonden\")"
+      "Bash(grep -rl \"domein: fysica\" \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\vault\\\\concepts\\\\\" 2>/dev/null || echo \"geen fysica-notes gevonden\")",
+      "Bash(noether)",
+      "Bash(speciale)",
+      "Bash(curie\")"
     ]
   }
 }
