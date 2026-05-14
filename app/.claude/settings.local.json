@@ -25,7 +25,8 @@
       "Bash(grep -rl \"domein: fysica\" \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\vault\\\\concepts\\\\\" 2>/dev/null || echo \"geen fysica-notes gevonden\")",
       "Bash(noether)",
       "Bash(speciale)",
-      "Bash(curie\")"
+      "Bash(curie\")",
+      "Bash(ls \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\\")"
     ]
   }
 }
