@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
 import { config, getDomain, tailwindClassesFor } from '@/lib/config';
-import { loadConcepts } from '@/lib/load-concepts';
+import { loadConcepts, loadEssays } from '@/lib/load-concepts';
+import EssayList from '@/components/EssayList';
 
 export default function ExplorePage() {
   const lang = config.languages.primary;
   const L = config.ui[lang];
   const concepts = loadConcepts(lang);
+  const essays = config.essaysEnabled ? loadEssays(lang) : [];
   const hasSecondary = !!config.languages.secondary;
 
   return (
@@ -71,6 +73,22 @@ export default function ExplorePage() {
             );
           })}
         </div>
+
+        {config.essaysEnabled && (
+          <section
+            className="mt-16 pt-10 border-t"
+            style={{ borderColor: 'var(--border)' }}
+          >
+            <h2 className="text-2xl font-semibold mb-2 tracking-tight">{L.essaysTitle}</h2>
+            <p
+              className="text-sm mb-6 opacity-40"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              {L.essaysIntro}
+            </p>
+            <EssayList essays={essays} lang={lang} base="" />
+          </section>
+        )}
       </div>
     </div>
   );

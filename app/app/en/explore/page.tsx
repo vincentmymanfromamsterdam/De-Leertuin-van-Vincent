@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
 import { config, tailwindClassesFor } from '@/lib/config';
-import { loadConcepts } from '@/lib/load-concepts';
+import { loadConcepts, loadEssays } from '@/lib/load-concepts';
+import EssayList from '@/components/EssayList';
 
 export default function SecondaryExplorePage() {
   const secondary = config.languages.secondary;
@@ -11,6 +12,7 @@ export default function SecondaryExplorePage() {
   const lang = secondary;
   const L = config.ui[lang];
   const concepts = loadConcepts(lang);
+  const essays = config.essaysEnabled ? loadEssays(lang) : [];
   const base = `/${lang}`;
   const primary = config.languages.primary;
 
@@ -74,6 +76,22 @@ export default function SecondaryExplorePage() {
             );
           })}
         </div>
+
+        {config.essaysEnabled && (
+          <section
+            className="mt-16 pt-10 border-t"
+            style={{ borderColor: 'var(--border)' }}
+          >
+            <h2 className="text-2xl font-semibold mb-2 tracking-tight">{L.essaysTitle}</h2>
+            <p
+              className="text-sm mb-6 opacity-40"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              {L.essaysIntro}
+            </p>
+            <EssayList essays={essays} lang={lang} base={base} />
+          </section>
+        )}
       </div>
     </div>
   );

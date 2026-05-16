@@ -26,7 +26,8 @@
       "Bash(noether)",
       "Bash(speciale)",
       "Bash(curie\")",
-      "Bash(ls \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\\")"
+      "Bash(ls \"C:\\\\Users\\\\vinc_\\\\De Leertuin van Vincent\\\\\")",
+      "Bash(npx next *)"
     ]
   }
 }
