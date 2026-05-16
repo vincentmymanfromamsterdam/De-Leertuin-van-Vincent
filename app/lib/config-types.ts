@@ -101,6 +101,7 @@ export interface UiStrings {
   essaySynthesis: string;
   essayReflection: string;
   essayConcepts: string;
+  essayFurtherReading: string;
 }
 
 export interface LeertuinConfig {

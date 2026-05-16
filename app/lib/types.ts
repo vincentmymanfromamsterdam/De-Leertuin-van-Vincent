@@ -31,17 +31,26 @@ export interface Concept {
  * Essays are not part of the daily concept rotation; they live at
  * /essays and /essay/[slug].
  */
+/** A single item in the "Concepten die hier samenkomen" list. */
+export interface EssayConcept {
+  /** The wikilink target name, e.g. "Hume's probleem van inductie". */
+  link: string;
+  /** Optional explanation after the em-dash on that line. */
+  uitleg?: string;
+}
+
 export interface Essay {
   slug: string;
   titel: string;
   /** One or more domain keys this essay touches. */
   domeinen: string[];
-  /** Concept titles (wikilinks resolved to text) that this essay connects. */
-  concepten: string[];
+  /** Concept references parsed from the body section (with optional per-item gloss). */
+  concepten: EssayConcept[];
   aangemaakt: string | null;
-  vraag: string;       // Vraag / premisse → HTML
-  synthese: string;    // Synthese → HTML
-  reflectie: string;   // Wat ik hierdoor anders zie → HTML
+  vraag: string;          // Vraag/premisse → HTML
+  synthese: string;       // Synthese → HTML
+  reflectie: string;      // Wat dit zichtbaar maakt → HTML
+  verderLezen: string;    // Verder lezen → HTML (may be empty)
   /** Dynamic secondary-language fields. */
   [key: string]: unknown;
 }

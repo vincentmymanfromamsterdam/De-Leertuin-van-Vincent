@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { Essay, Concept } from '@/lib/types';
+import type { Essay, EssayConcept, Concept } from '@/lib/types';
 import { slugify } from '@/lib/utils';
 import { config, getDomain, tailwindClassesFor } from '@/lib/config';
 
@@ -136,41 +136,54 @@ export default function EssayDisplay({
           </section>
         )}
 
-        {/* ── Concepten die hier samenkomen ── */}
+        {/* ── Concepten die hier samenkomen (lijst met uitleg per item) ── */}
         {essay.concepten.length > 0 && (
-          <section className="mb-10">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-40"
+          <section className="mb-8">
+            <h2
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
               style={{ fontFamily: 'system-ui, sans-serif' }}
             >
               {L.essayConcepts}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {essay.concepten.map((name) => {
-                const slug = slugify(name);
+            </h2>
+            <ul className="prose">
+              {essay.concepten.map((item: EssayConcept, i) => {
+                const slug = slugify(item.link);
                 const linked = knownSlugs.has(slug);
-                const cls =
-                  'rounded-full px-3 py-1 text-sm border transition-opacity hover:opacity-100 opacity-70';
-                return linked ? (
-                  <Link
-                    key={name}
-                    href={`${base}/concept/${slug}`}
-                    className={`${cls} hover:underline`}
-                    style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
-                  >
-                    {name}
-                  </Link>
-                ) : (
-                  <span
-                    key={name}
-                    className={cls}
-                    style={{ borderColor: 'var(--border)', fontFamily: 'system-ui, sans-serif' }}
-                  >
-                    {name}
-                  </span>
+                return (
+                  <li key={`${item.link}-${i}`} className="leading-relaxed">
+                    {linked ? (
+                      <Link
+                        href={`${base}/concept/${slug}`}
+                        className="font-semibold underline underline-offset-2 hover:opacity-70 transition-opacity"
+                      >
+                        {item.link}
+                      </Link>
+                    ) : (
+                      <span className="font-semibold">{item.link}</span>
+                    )}
+                    {item.uitleg && (
+                      <span className="opacity-70"> — {item.uitleg}</span>
+                    )}
+                  </li>
                 );
               })}
-            </div>
+            </ul>
+          </section>
+        )}
+
+        {/* ── Verder lezen (optioneel) ── */}
+        {essay.verderLezen && (
+          <section className="mb-10">
+            <h2
+              className="text-xs font-semibold uppercase tracking-widest mb-3 opacity-50"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              {L.essayFurtherReading}
+            </h2>
+            <div
+              className="prose prose-verder-lezen text-sm opacity-70"
+              dangerouslySetInnerHTML={{ __html: essay.verderLezen }}
+            />
           </section>
         )}
       </div>

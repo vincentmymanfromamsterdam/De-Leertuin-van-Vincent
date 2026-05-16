@@ -31,13 +31,25 @@ const FIELD_NAME: Record<SectionKey, string> = {
 
 /**
  * Essay sections — fixed structure, hard-coded headings per language.
- * (Not yet exposed in leertuin.config.ts to keep that surface small.)
+ * Heading matching is whitespace-tolerant (see extractSection), so
+ * `## Vraag/premisse` and `## Vraag / premisse` both match.
  */
-const ESSAY_SECTIONS: { key: string; heading: Record<string, string> }[] = [
-  { key: 'vraag',     heading: { nl: 'Vraag / premisse',           en: 'Question / premise' } },
-  { key: 'synthese',  heading: { nl: 'Synthese',                   en: 'Synthesis' } },
-  { key: 'reflectie', heading: { nl: 'Wat ik hierdoor anders zie', en: 'What I now see differently' } },
+const ESSAY_SECTIONS: {
+  key: string;
+  heading: Record<string, string>;
+  style: 'body' | 'links';
+}[] = [
+  { key: 'vraag',       heading: { nl: 'Vraag/premisse',            en: 'Question/premise' },          style: 'body'  },
+  { key: 'synthese',    heading: { nl: 'Synthese',                  en: 'Synthesis' },                 style: 'body'  },
+  { key: 'reflectie',   heading: { nl: 'Wat dit zichtbaar maakt',   en: 'What this makes visible' },   style: 'body'  },
+  { key: 'verderLezen', heading: { nl: 'Verder lezen',              en: 'Further reading' },           style: 'links' },
 ];
+
+/** Heading for the structured concepten list — parsed separately from prose sections. */
+const CONCEPTEN_HEADING: Record<string, string> = {
+  nl: 'Concepten die hier samenkomen',
+  en: 'Concepts that converge here',
+};
 
 /** Strip Obsidian [[wikilinks]] to plain text, optionally resolving aliases. */
 function stripWikilinks(text: string): string {
@@ -66,16 +78,25 @@ async function toHtml(markdown: string, externalLinksInNewTab = false): Promise<
  * Extracts the text under a ## Heading from a markdown body.
  * Stops at the next ## heading. Returns '' if not found.
  */
+/**
+ * Lowercase + strip all whitespace. Makes heading comparisons tolerant
+ * to "Vraag/premisse" vs "Vraag / premisse" and similar variants.
+ */
+function normHeading(s: string): string {
+  return s.toLowerCase().replace(/\s+/g, '');
+}
+
 function extractSection(body: string, heading: string): string {
   // Normalize CRLF → LF so Windows-edited notes match headings reliably
   const lines = body.replace(/\r\n/g, '\n').split('\n');
+  const target = normHeading(heading);
   let inside = false;
   const collected: string[] = [];
 
   for (const line of lines) {
     if (/^##\s+/.test(line)) {
       if (inside) break;
-      if (line.replace(/^##\s+/, '').toLowerCase() === heading.toLowerCase()) {
+      if (normHeading(line.replace(/^##\s+/, '')) === target) {
         inside = true;
       }
       continue;
@@ -125,9 +146,55 @@ async function extractEssaySections(body: string, lang: string): Promise<Record<
       const fallback = s.heading[PRIMARY] ?? s.heading.nl;
       raw = extractSection(body, fallback);
     }
-    out[s.key] = await toHtml(raw);
+    out[s.key] = await toHtml(raw, s.style === 'links');
   }
   return out;
+}
+
+/**
+ * Parses the "Concepten die hier samenkomen" section into structured items.
+ * Accepts lines like:
+ *   - [[Concept name]] — explanation goes here
+ *   - [[Concept name]]                       (no explanation)
+ *   * [[Concept name]] - explanation         (alt bullet, alt dash)
+ * Anything that isn't a wikilink-starting bullet is skipped.
+ */
+function parseConceptenList(markdown: string): { link: string; uitleg?: string }[] {
+  const out: { link: string; uitleg?: string }[] = [];
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+  const re = /^\s*[-*]\s*\[\[([^\]|]+)(?:\|[^\]]+)?\]\]\s*(?:[—–-]+\s*(.+?))?\s*$/;
+  for (const line of lines) {
+    const m = line.match(re);
+    if (!m) continue;
+    const link = m[1].trim();
+    const uitleg = m[2]?.trim();
+    out.push(uitleg ? { link, uitleg } : { link });
+  }
+  return out;
+}
+
+/**
+ * Extracts the concepten list for an essay, trying the body section first
+ * (which can carry per-item explanations) and falling back to the
+ * frontmatter `concepten` array (links only).
+ */
+function extractConceptenList(
+  body: string,
+  frontmatter: unknown,
+  lang: string,
+): { link: string; uitleg?: string }[] {
+  const primaryHeading = CONCEPTEN_HEADING[PRIMARY] ?? CONCEPTEN_HEADING.nl;
+  const langHeading = CONCEPTEN_HEADING[lang] ?? primaryHeading;
+  let raw = extractSection(body, langHeading);
+  if (!raw && lang !== PRIMARY) raw = extractSection(body, primaryHeading);
+  const fromBody = parseConceptenList(raw);
+  if (fromBody.length > 0) return fromBody;
+
+  // Fall back to frontmatter — wikilink names only, no explanations
+  if (Array.isArray(frontmatter)) {
+    return parseRelated(frontmatter).map((link) => ({ link }));
+  }
+  return [];
 }
 
 async function buildConcepts(): Promise<void> {
@@ -253,8 +320,9 @@ async function buildEssays(): Promise<void> {
     }
 
     const primarySections = await extractEssaySections(body, PRIMARY);
+    const primaryConcepten = extractConceptenList(body, data.concepten, PRIMARY);
 
-    let secondaryFields: Record<string, string> = {};
+    let secondaryFields: Record<string, unknown> = {};
     if (SECONDARY) {
       const enFile = file.replace(/\.md$/, SECONDARY_SUFFIX);
       const enPath = path.join(ESSAYS_DIR, enFile);
@@ -263,10 +331,12 @@ async function buildEssays(): Promise<void> {
         const { data: enData, content: enBody } = matter(enRaw);
         const enTitel = String(enData.titel ?? '');
         const enSections = await extractEssaySections(enBody, SECONDARY);
+        const enConcepten = extractConceptenList(enBody, enData.concepten, SECONDARY);
         if (enTitel) secondaryFields[`titel_${SECONDARY}`] = enTitel;
         for (const [field, value] of Object.entries(enSections)) {
           if (value) secondaryFields[`${field}_${SECONDARY}`] = value;
         }
+        if (enConcepten.length > 0) secondaryFields[`concepten_${SECONDARY}`] = enConcepten;
       }
     }
 
@@ -274,7 +344,7 @@ async function buildEssays(): Promise<void> {
       slug,
       titel,
       domeinen,
-      concepten: parseRelated(data.concepten ?? []),
+      concepten: primaryConcepten,
       aangemaakt: data.aangemaakt ?? null,
       ...primarySections,
       ...secondaryFields,

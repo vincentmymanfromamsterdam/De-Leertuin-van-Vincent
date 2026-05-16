@@ -122,8 +122,9 @@ const config: LeertuinConfig = {
       essaysBackToAll: '← Alle essays',
       essayQuestion: 'Vraag',
       essaySynthesis: 'Synthese',
-      essayReflection: 'Wat ik hierdoor anders zie',
+      essayReflection: 'Wat dit zichtbaar maakt',
       essayConcepts: 'Concepten die hier samenkomen',
+      essayFurtherReading: 'Verder lezen',
     },
     en: {
       showAnother: 'Show another concept',
@@ -146,8 +147,9 @@ const config: LeertuinConfig = {
       essaysBackToAll: '← All essays',
       essayQuestion: 'Question',
       essaySynthesis: 'Synthesis',
-      essayReflection: 'What I now see differently',
+      essayReflection: 'What this makes visible',
       essayConcepts: 'Concepts that converge here',
+      essayFurtherReading: 'Further reading',
     },
   },
 };
