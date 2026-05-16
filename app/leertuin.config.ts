@@ -65,6 +65,8 @@ const config: LeertuinConfig = {
     0: 'random',
   },
 
+  essaysEnabled: true,
+
   sections: [
     {
       key: 'kern',
@@ -113,6 +115,15 @@ const config: LeertuinConfig = {
       total: 'totaal',
       emptyDomain: 'Nog geen concepten in dit domein.',
       brandLink: '← Verken',
+      essays: 'Essays',
+      essaysTitle: 'Essays',
+      essaysIntro: 'Syntheses waarin meerdere concepten samenkomen.',
+      essaysEmpty: 'Nog geen essays gepubliceerd.',
+      essaysBackToAll: '← Alle essays',
+      essayQuestion: 'Vraag',
+      essaySynthesis: 'Synthese',
+      essayReflection: 'Wat ik hierdoor anders zie',
+      essayConcepts: 'Concepten die hier samenkomen',
     },
     en: {
       showAnother: 'Show another concept',
@@ -128,6 +139,15 @@ const config: LeertuinConfig = {
       total: 'total',
       emptyDomain: 'No concepts in this domain yet.',
       brandLink: '← Explore',
+      essays: 'Essays',
+      essaysTitle: 'Essays',
+      essaysIntro: 'Syntheses where multiple concepts converge.',
+      essaysEmpty: 'No essays published yet.',
+      essaysBackToAll: '← All essays',
+      essayQuestion: 'Question',
+      essaySynthesis: 'Synthesis',
+      essayReflection: 'What I now see differently',
+      essayConcepts: 'Concepts that converge here',
     },
   },
 };

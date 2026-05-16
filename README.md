@@ -127,6 +127,55 @@ optional — plain strings work too.
 
 ---
 
+## Essays — a second content type
+
+Next to the daily concept rotation, the app supports **essays**:
+longer-form pieces that synthesise multiple concepts into a single
+argument. They live at `/essays` and `/essay/<slug>` and are not part
+of the daily rotation.
+
+A concept is atomic ("what is entropy?"). An essay is connective
+("what do entropy, evolution, and the arrow of time have in common?").
+Aim for 500–1500 words.
+
+Place essay files in **`vault/essays/`** (one per file). Only essays
+with `status: published` appear on the site.
+
+```markdown
+---
+type: essay
+titel: The shape of time
+domeinen: [physics, philosophy]   # one or more domain keys
+status: published                 # only "published" is shown
+concepten: ["[[Entropy]]", "Arrow of time"]
+aangemaakt: 2026-04-15
+---
+
+## Vraag / premisse
+The single question or claim the essay is built around.
+
+## Synthese
+The actual argument. Multiple paragraphs. This is the body.
+
+## Wat ik hierdoor anders zie
+Honest reflection — what did writing this shift in your thinking?
+```
+
+English-language essays (`.<secondary>.md`) recognise English headings
+too: `Question / premise`, `Synthesis`, `What I now see differently`.
+
+The frontmatter `concepten` list renders as clickable tags at the
+bottom of the essay, linking to each concept's page (when that concept
+exists in `vault/concepts/`).
+
+### Turning essays off
+
+If you only want the daily concept rotation, set
+`essaysEnabled: false` in `leertuin.config.ts`. The `/essays` route
+will return 404 and the nav link disappears.
+
+---
+
 ## Adding a translation
 
 For each `Entropy.md`, create a sibling file `Entropy.<lang>.md` where

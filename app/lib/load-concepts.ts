@@ -1,14 +1,29 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-import type { Concept } from './types';
+import type { Concept, Essay } from './types';
 import { config } from './config';
+
+const CONCEPT_FIELDS = ['titel', 'kern', 'uitleg', 'waarom', 'openVragen', 'verder_lezen'] as const;
+const ESSAY_FIELDS = ['titel', 'vraag', 'synthese', 'reflectie'] as const;
+
+function promoteSecondary<T extends Record<string, unknown>>(
+  item: T,
+  lang: string,
+  fields: readonly string[],
+): T {
+  const out = { ...item };
+  for (const f of fields) {
+    const translated = item[`${f}_${lang}`];
+    if (typeof translated === 'string' && translated.length > 0) {
+      (out as Record<string, unknown>)[f] = translated;
+    }
+  }
+  return out;
+}
 
 /**
  * Loads concepts and, when a non-primary language is requested,
  * promotes that language's _<lang> fields onto the primary ones.
- *
- * Falls back to primary-language content per-field if the secondary
- * is missing.
  */
 export function loadConcepts(lang: string = config.languages.primary): Concept[] {
   try {
@@ -16,18 +31,20 @@ export function loadConcepts(lang: string = config.languages.primary): Concept[]
       readFileSync(path.join(process.cwd(), 'data/concepts.json'), 'utf-8'),
     ) as Concept[];
     if (lang === config.languages.primary) return concepts;
+    return concepts.map((c) => promoteSecondary(c, lang, CONCEPT_FIELDS));
+  } catch {
+    return [];
+  }
+}
 
-    const fields = ['titel', 'kern', 'uitleg', 'waarom', 'openVragen', 'verder_lezen'] as const;
-    return concepts.map((c) => {
-      const out = { ...c };
-      for (const f of fields) {
-        const translated = c[`${f}_${lang}`];
-        if (typeof translated === 'string' && translated.length > 0) {
-          (out as Record<string, unknown>)[f] = translated;
-        }
-      }
-      return out;
-    });
+/** Same shape as loadConcepts but for essays. */
+export function loadEssays(lang: string = config.languages.primary): Essay[] {
+  try {
+    const essays = JSON.parse(
+      readFileSync(path.join(process.cwd(), 'data/essays.json'), 'utf-8'),
+    ) as Essay[];
+    if (lang === config.languages.primary) return essays;
+    return essays.map((e) => promoteSecondary(e, lang, ESSAY_FIELDS));
   } catch {
     return [];
   }

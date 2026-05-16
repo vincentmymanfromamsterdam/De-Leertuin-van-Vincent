@@ -129,6 +129,56 @@ zijn optioneel — gewone strings werken ook.
 
 ---
 
+## Essays — een tweede content-type
+
+Naast de dagelijkse concept-rotatie ondersteunt de app **essays**:
+langere stukken die meerdere concepten samenbrengen in één betoog.
+Ze leven op `/essays` en `/essay/<slug>` en doen niet mee in de
+dagrotatie.
+
+Een concept is atomair ("wat is entropie?"). Een essay is verbindend
+("wat hebben entropie, evolutie en de pijl van de tijd gemeen?"). Mik
+op 500–1500 woorden.
+
+Plaats essay-bestanden in **`vault/essays/`** (één per bestand). Alleen
+essays met `status: published` verschijnen op de site.
+
+```markdown
+---
+type: essay
+titel: De vorm van tijd
+domeinen: [fysica, filosofie]      # één of meer domein-keys
+status: published                  # alleen "published" verschijnt
+concepten: ["[[Entropie]]", "Pijl van de tijd"]
+aangemaakt: 2026-04-15
+---
+
+## Vraag / premisse
+De ene vraag of stelling waar het essay omheen is gebouwd.
+
+## Synthese
+Het eigenlijke betoog. Meerdere alinea's. Dit is de hoofdtekst.
+
+## Wat ik hierdoor anders zie
+Eerlijke reflectie — wat heeft het schrijven verschoven in je denken?
+```
+
+Engelse essay-vertalingen (`.<secondary>.md`) herkennen ook Engelse
+kopnamen: `Question / premise`, `Synthesis`, `What I now see
+differently`.
+
+De frontmatter-lijst `concepten` verschijnt als klikbare tags onderaan
+het essay, met links naar de concept-pagina's (als dat concept bestaat
+in `vault/concepts/`).
+
+### Essays uitzetten
+
+Wil je alleen de dagelijkse concept-rotatie? Zet `essaysEnabled: false`
+in `leertuin.config.ts`. De `/essays`-route geeft dan 404 en de
+nav-link verdwijnt.
+
+---
+
 ## Vertaling toevoegen
 
 Voor elke `Entropie.md`, maak een buurbestand `Entropie.<lang>.md` waar

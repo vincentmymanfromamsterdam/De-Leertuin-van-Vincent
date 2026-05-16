@@ -9,7 +9,9 @@ import { config } from '../lib/config';
 import type { SectionKey } from '../lib/config-types';
 
 const VAULT_DIR = path.join(__dirname, '..', config.vault.path);
+const ESSAYS_DIR = path.join(__dirname, '..', path.dirname(config.vault.path), 'essays');
 const OUTPUT_FILE = path.join(__dirname, '../data/concepts.json');
+const ESSAYS_OUTPUT = path.join(__dirname, '../data/essays.json');
 const CACHE_FILE = path.join(__dirname, '../translations/cache.json');
 
 const PRIMARY = config.languages.primary;
@@ -26,6 +28,16 @@ const FIELD_NAME: Record<SectionKey, string> = {
   openVragen: 'openVragen',
   verderLezen: 'verder_lezen',
 };
+
+/**
+ * Essay sections — fixed structure, hard-coded headings per language.
+ * (Not yet exposed in leertuin.config.ts to keep that surface small.)
+ */
+const ESSAY_SECTIONS: { key: string; heading: Record<string, string> }[] = [
+  { key: 'vraag',     heading: { nl: 'Vraag / premisse',           en: 'Question / premise' } },
+  { key: 'synthese',  heading: { nl: 'Synthese',                   en: 'Synthesis' } },
+  { key: 'reflectie', heading: { nl: 'Wat ik hierdoor anders zie', en: 'What I now see differently' } },
+];
 
 /** Strip Obsidian [[wikilinks]] to plain text, optionally resolving aliases. */
 function stripWikilinks(text: string): string {
@@ -85,10 +97,9 @@ function parseRelated(items: unknown[]): string[] {
 }
 
 /**
- * Extracts all section bodies from a markdown body for a given language.
+ * Extracts all concept sections from a markdown body for a given language.
  * Tries the configured heading for `lang` first; if not found and `lang`
- * is not the primary, falls back to the primary heading. This makes
- * .en.md files that still use Dutch headings continue to work.
+ * is not the primary, falls back to the primary heading.
  */
 async function extractAllSections(body: string, lang: string): Promise<Record<string, string>> {
   const out: Record<string, string> = {};
@@ -96,7 +107,6 @@ async function extractAllSections(body: string, lang: string): Promise<Record<st
     const heading = section.heading[lang] ?? section.heading[PRIMARY];
     let raw = extractSection(body, heading);
     if (!raw && lang !== PRIMARY) {
-      // Fallback: try the primary-language heading
       raw = extractSection(body, section.heading[PRIMARY]);
     }
     const html = await toHtml(raw, section.style === 'links');
@@ -105,7 +115,22 @@ async function extractAllSections(body: string, lang: string): Promise<Record<st
   return out;
 }
 
-async function buildVault() {
+/** Same logic as extractAllSections but for the (hard-coded) essay sections. */
+async function extractEssaySections(body: string, lang: string): Promise<Record<string, string>> {
+  const out: Record<string, string> = {};
+  for (const s of ESSAY_SECTIONS) {
+    const heading = s.heading[lang] ?? s.heading[PRIMARY] ?? s.heading.nl;
+    let raw = extractSection(body, heading);
+    if (!raw && lang !== PRIMARY) {
+      const fallback = s.heading[PRIMARY] ?? s.heading.nl;
+      raw = extractSection(body, fallback);
+    }
+    out[s.key] = await toHtml(raw);
+  }
+  return out;
+}
+
+async function buildConcepts(): Promise<void> {
   if (!fs.existsSync(VAULT_DIR)) {
     console.error(`Vault directory not found: ${VAULT_DIR}`);
     process.exit(1);
@@ -137,13 +162,10 @@ async function buildVault() {
       continue;
     }
 
-    // Primary-language sections
     const primarySections = await extractAllSections(body, PRIMARY);
 
-    // Secondary-language fields (if configured)
     let secondaryFields: Record<string, string> = {};
     if (SECONDARY) {
-      // Priority 1: <name>.<secondary>.md file in the vault
       const enFile = file.replace(/\.md$/, SECONDARY_SUFFIX);
       const enPath = path.join(VAULT_DIR, enFile);
       if (fs.existsSync(enPath)) {
@@ -156,7 +178,6 @@ async function buildVault() {
           if (value) secondaryFields[`${field}_${SECONDARY}`] = value;
         }
       } else {
-        // Priority 2: translations/cache.json (legacy, optional)
         const cached = translationCache[slug];
         if (cached) {
           if (cached.titel) secondaryFields[`titel_${SECONDARY}`] = cached.titel;
@@ -196,7 +217,97 @@ async function buildVault() {
   console.log(`✓ Built ${concepts.length} concept(s) → data/concepts.json`);
 }
 
-buildVault().catch((err) => {
+async function buildEssays(): Promise<void> {
+  fs.mkdirSync(path.dirname(ESSAYS_OUTPUT), { recursive: true });
+
+  if (!fs.existsSync(ESSAYS_DIR)) {
+    fs.writeFileSync(ESSAYS_OUTPUT, '[]', 'utf-8');
+    console.log('✓ No essays/ folder → data/essays.json (empty)');
+    return;
+  }
+
+  const files = fs
+    .readdirSync(ESSAYS_DIR)
+    .filter((f) => f.endsWith('.md') && (!SECONDARY || !f.endsWith(SECONDARY_SUFFIX)));
+  const essays: Record<string, unknown>[] = [];
+  const invalidDomains: { file: string; domein: string }[] = [];
+
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(ESSAYS_DIR, file), 'utf-8');
+    const { data, content: body } = matter(raw);
+
+    // Only published essays make it into the build
+    if (data.status !== 'published') continue;
+
+    const titel = String(data.titel ?? path.basename(file, '.md'));
+    const slug = slugify(titel);
+    const domeinen = Array.isArray(data.domeinen) ? data.domeinen.map(String) : [];
+
+    const fileInvalid: string[] = [];
+    for (const d of domeinen) {
+      if (!VALID_DOMAINS.has(d)) fileInvalid.push(d);
+    }
+    if (fileInvalid.length > 0) {
+      for (const d of fileInvalid) invalidDomains.push({ file, domein: d });
+      continue;
+    }
+
+    const primarySections = await extractEssaySections(body, PRIMARY);
+
+    let secondaryFields: Record<string, string> = {};
+    if (SECONDARY) {
+      const enFile = file.replace(/\.md$/, SECONDARY_SUFFIX);
+      const enPath = path.join(ESSAYS_DIR, enFile);
+      if (fs.existsSync(enPath)) {
+        const enRaw = fs.readFileSync(enPath, 'utf-8');
+        const { data: enData, content: enBody } = matter(enRaw);
+        const enTitel = String(enData.titel ?? '');
+        const enSections = await extractEssaySections(enBody, SECONDARY);
+        if (enTitel) secondaryFields[`titel_${SECONDARY}`] = enTitel;
+        for (const [field, value] of Object.entries(enSections)) {
+          if (value) secondaryFields[`${field}_${SECONDARY}`] = value;
+        }
+      }
+    }
+
+    essays.push({
+      slug,
+      titel,
+      domeinen,
+      concepten: parseRelated(data.concepten ?? []),
+      aangemaakt: data.aangemaakt ?? null,
+      ...primarySections,
+      ...secondaryFields,
+    });
+  }
+
+  if (invalidDomains.length > 0) {
+    console.error('✗ Essays with invalid domein values in `domeinen`:');
+    for (const { file, domein } of invalidDomains) {
+      console.error(`  - ${file}: "${domein}" not defined in leertuin.config.ts`);
+    }
+    console.error(`  Valid domains: ${[...VALID_DOMAINS].join(', ')}`);
+    process.exit(1);
+  }
+
+  // Sort: newest first by aangemaakt (ISO/date string comparison)
+  essays.sort((a, b) => {
+    const da = String(a.aangemaakt ?? '');
+    const db = String(b.aangemaakt ?? '');
+    if (da === db) return 0;
+    return da < db ? 1 : -1;
+  });
+
+  fs.writeFileSync(ESSAYS_OUTPUT, JSON.stringify(essays, null, 2), 'utf-8');
+  console.log(`✓ Built ${essays.length} essay(s) → data/essays.json`);
+}
+
+async function main() {
+  await buildConcepts();
+  await buildEssays();
+}
+
+main().catch((err) => {
   console.error(err);
   process.exit(1);
 });

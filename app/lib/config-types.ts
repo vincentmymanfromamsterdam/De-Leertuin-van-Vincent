@@ -92,6 +92,15 @@ export interface UiStrings {
   total: string;
   emptyDomain: string;
   brandLink: string;
+  essays: string;
+  essaysTitle: string;
+  essaysIntro: string;
+  essaysEmpty: string;
+  essaysBackToAll: string;
+  essayQuestion: string;
+  essaySynthesis: string;
+  essayReflection: string;
+  essayConcepts: string;
 }
 
 export interface LeertuinConfig {
@@ -111,6 +120,8 @@ export interface LeertuinConfig {
   domains: DomainDef[];
   schedule: ScheduleConfig;
   sections: SectionDef[];
+  /** When true, /essays + /essay/[slug] routes are served. */
+  essaysEnabled: boolean;
   /** UI strings keyed by language code. */
   ui: Record<string, UiStrings>;
 }

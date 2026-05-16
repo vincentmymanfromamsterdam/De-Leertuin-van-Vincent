@@ -94,6 +94,15 @@ export default function ConceptDisplay({
                 </Link>
               </>
             )}
+            {!isDetail && config.essaysEnabled && (
+              <Link
+                href={`${base}/essays`}
+                className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+                style={{ fontFamily: 'system-ui, sans-serif' }}
+              >
+                {L.essays}
+              </Link>
+            )}
             {langHref && otherLang && (
               <Link
                 href={langHref}
