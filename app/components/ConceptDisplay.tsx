@@ -118,6 +118,17 @@ export default function ConceptDisplay({
         {/* ── Date (home only) ── */}
         {!isDetail && <TodayDate lang={lang} />}
 
+        {/* ── Terug naar het domein (detailpagina) ── */}
+        {isDetail && domain && (
+          <Link
+            href={`${base}/explore/${concept.domein}`}
+            className="mb-6 inline-block text-sm opacity-50 hover:opacity-100 transition-opacity"
+            style={{ fontFamily: 'system-ui, sans-serif' }}
+          >
+            ← {domainLabel}
+          </Link>
+        )}
+
         {/* ── Domain badge ── */}
         {cfg && (
           <div className="mb-4">
