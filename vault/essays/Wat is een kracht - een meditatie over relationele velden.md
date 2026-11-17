@@ -1,8 +1,8 @@
 ---
 type: essay
-domein: fysica
+domeinen: [fysica, filosofie]
 titel: "Wat is een kracht - een meditatie over relationele velden"
-status: ripe
+status: published
 tags: [essay, fundamentele-krachten, gauge-symmetrie, zwaartekracht, relationeel-monisme, Spinoza, emergentie]
 gerelateerd: ["[[Eichinvariantie en het gauge-principe - hoe symmetrie krachten voorschrijft]]", "[[De architectuur van het Standaardmodel - drie families twaalf deeltjes en wat ontbreekt]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]", "[[Kwantumveldtheorie - deeltjes als ripples en de emergentie van fundamentele eigenschappen]]", "[[Kwantumzwaartekracht en haar verschillende programmas - de zoektocht naar verenigde fysica]]", "[[Noether's theorema]]", "[[05-Spinoza en de ene substantie - God of natuur]]"]
 aangemaakt: 2026-06-02

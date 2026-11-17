@@ -94,6 +94,13 @@ export default function EssayDisplay({
           {essay.titel}
         </h1>
 
+        {/* ── Vrije vorm: hele tekst met eigen tussenkoppen ── */}
+        {essay.tekst && (
+          <section className="mb-10">
+            <div className="prose" dangerouslySetInnerHTML={{ __html: essay.tekst }} />
+          </section>
+        )}
+
         {/* ── Vraag / premisse (callout) ── */}
         {essay.vraag && accent && (
           <div className={`rounded-lg border-l-4 p-5 mb-8 ${accent.callout} ${accent.border}`}>

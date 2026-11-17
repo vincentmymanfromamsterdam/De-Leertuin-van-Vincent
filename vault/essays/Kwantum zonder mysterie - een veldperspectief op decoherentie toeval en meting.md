@@ -1,8 +1,8 @@
 ---
 type: essay
-domein: fysica
+domeinen: [fysica, filosofie]
 titel: "Kwantum zonder mysterie - een veldperspectief op decoherentie, toeval en meting"
-status: ripe
+status: published
 tags: [essay, kwantummechanica, decoherentie, meetprobleem, toeval, Born-regel, veldperspectief]
 gerelateerd: ["[[Decoherentie en de overgang van kwantum naar klassiek]]", "[[Toeval in de natuur - intrinsieke onzekerheid en wat ze betekent]]", "[[Het meetprobleem en zijn interpretaties - waarom een definitieve uitkomst niet vanzelf volgt]]", "[[Kwantumveldtheorie - deeltjes als ripples en de emergentie van fundamentele eigenschappen]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]"]
 aangemaakt: 2026-06-02
@@ -10,7 +10,7 @@ aangemaakt: 2026-06-02
 
 # Kwantum zonder mysterie — een veldperspectief op decoherentie, toeval en meting
 
-## Vraag
+## Vraag/premisse
 
 Wat blijft er over van het beroemde mysterie van de kwantummechanica wanneer we het nuchter analyseren? Generaties leerlingen en lezers van populair-wetenschappelijke boeken hebben geleerd dat de kwantumfysica fundamenteel raadselachtig is — dat deeltjes door twee spleten tegelijk gaan, dat bewustzijn de werkelijkheid beïnvloedt, dat observatie de natuur kan veranderen. Bij nadere beschouwing blijken deze beweringen grotendeels onhoudbaar, of in elk geval misleidend geformuleerd. Wat overblijft is iets specifiekers en kleiners: een technische open vraag in de fundamenten van de theorie. Dit essay probeert te tonen hoe drie afzonderlijke maar samenhangende inzichten — decoherentie, fundamenteel toeval, en het meetprobleem vanuit veldperspectief — samen het mysterie ontrafelen tot zijn werkelijke proporties.
 

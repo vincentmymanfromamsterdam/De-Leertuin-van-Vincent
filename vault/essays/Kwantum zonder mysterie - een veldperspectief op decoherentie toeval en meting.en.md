@@ -1,8 +1,8 @@
 ---
 type: essay
-domein: fysica
+domeinen: [fysica, filosofie]
 titel: "Quantum without mystery - a field perspective on decoherence, chance and measurement"
-status: ripe
+status: published
 tags: [essay, quantum-mechanics, decoherence, measurement-problem, chance, Born-rule, field-perspective]
 gerelateerd: ["[[Decoherence and the transition from quantum to classical]]", "[[Chance in nature - intrinsic uncertainty and what it means]]", "[[The measurement problem and its interpretations - why a definite outcome does not automatically follow]]", "[[Quantum field theory - particles as ripples and the emergence of fundamental properties]]", "[[Valid versus useful - why an irrefutable argument need not explain anything]]"]
 aangemaakt: 2026-06-02
@@ -10,7 +10,7 @@ aangemaakt: 2026-06-02
 
 # Quantum without mystery — a field perspective on decoherence, chance and measurement
 
-## Question
+## Question/premise
 
 What remains of the famous mystery of quantum mechanics when we analyse it soberly? Generations of pupils and readers of popular-scientific books have learned that quantum physics is fundamentally enigmatic — that particles go through two slits simultaneously, that consciousness influences reality, that observation can change nature. On closer inspection, these claims turn out largely untenable, or at least misleadingly formulated. What remains is something more specific and smaller: a technical open question in the foundations of the theory. This essay tries to show how three separate but interrelated insights — decoherence, fundamental chance, and the measurement problem from the field perspective — together unravel the mystery to its actual proportions.
 
@@ -66,7 +66,7 @@ The measurement problem and the broader quantum foundations follow the same patt
 
 This may be the most important lesson. For those who want to understand quantum physics as contemporary physicists understand it — not as a collection of paradoxes but as a working theory of fields and their interactions — dismantling the popular mysteries is a first step. What remains is technically interesting and philosophically productive, but not mystical. And that is, ultimately, a good place to be. Scientific progress rarely works by creating mysteries; it works by unravelling them into something we better understand, without it becoming less fascinating.
 
-## Concepts that come together here
+## Concepts that converge here
 
 - [[Decoherence and the transition from quantum to classical]] — the precise description of how quantum coherence is lost through environmental interaction
 - [[Chance in nature - intrinsic uncertainty and what it means]] — fundamental ontological chance as feature of reality, not as artefact of our understanding

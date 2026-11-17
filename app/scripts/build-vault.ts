@@ -148,7 +148,37 @@ async function extractEssaySections(body: string, lang: string): Promise<Record<
     }
     out[s.key] = await toHtml(raw, s.style === 'links');
   }
+
+  // Free-form essays: if none of the fixed prose sections is present,
+  // render the whole body (minus the title, the concepten list and
+  // Verder lezen) as one text with its own ## headings.
+  if (!out.vraag && !out.synthese && !out.reflectie) {
+    out.tekst = await toHtml(extractFreeBody(body, lang));
+  }
   return out;
+}
+
+/** Body of a free-form essay without the # title, concepten and verder-lezen sections. */
+function extractFreeBody(body: string, lang: string): string {
+  const skip = new Set(
+    [
+      CONCEPTEN_HEADING[lang], CONCEPTEN_HEADING[PRIMARY], CONCEPTEN_HEADING.nl,
+      ...ESSAY_SECTIONS.filter((s) => s.key === 'verderLezen').flatMap((s) => Object.values(s.heading)),
+    ]
+      .filter(Boolean)
+      .map((h) => normHeading(h as string)),
+  );
+  const lines = body.replace(/\r\n/g, '\n').split('\n');
+  const kept: string[] = [];
+  let skipping = false;
+  for (const line of lines) {
+    if (/^#\s+/.test(line)) continue; // drop the H1 title
+    if (/^##\s+/.test(line)) {
+      skipping = skip.has(normHeading(line.replace(/^##\s+/, '')));
+    }
+    if (!skipping) kept.push(line);
+  }
+  return kept.join('\n').trim();
 }
 
 /**

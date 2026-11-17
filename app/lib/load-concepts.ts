@@ -4,7 +4,7 @@ import type { Concept, Essay } from './types';
 import { config } from './config';
 
 const CONCEPT_FIELDS = ['titel', 'kern', 'uitleg', 'waarom', 'openVragen', 'verder_lezen'] as const;
-const ESSAY_FIELDS = ['titel', 'vraag', 'synthese', 'reflectie', 'verderLezen', 'concepten'] as const;
+const ESSAY_FIELDS = ['titel', 'vraag', 'synthese', 'reflectie', 'tekst', 'verderLezen', 'concepten'] as const;
 
 function promoteSecondary<T extends Record<string, unknown>>(
   item: T,

@@ -51,6 +51,8 @@ export interface Essay {
   synthese: string;       // Synthese → HTML
   reflectie: string;      // Wat dit zichtbaar maakt → HTML
   verderLezen: string;    // Verder lezen → HTML (may be empty)
+  /** Free-form essays: whole body as HTML when the fixed sections are absent. */
+  tekst?: string;
   /** Dynamic secondary-language fields. */
   [key: string]: unknown;
 }

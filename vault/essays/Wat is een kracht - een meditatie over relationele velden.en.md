@@ -1,8 +1,8 @@
 ---
 type: essay
-domein: fysica
+domeinen: [fysica, filosofie]
 titel: "What is a force - a meditation on relational fields"
-status: ripe
+status: published
 tags: [essay, fundamental-forces, gauge-symmetry, gravity, relational-monism, Spinoza, emergence]
 gerelateerd: ["[[Gauge invariance and the gauge principle - how symmetry prescribes forces]]", "[[The architecture of the Standard Model - three families twelve particles and what is missing]]", "[[The Higgs mechanism - how mass arises in a symmetric universe]]", "[[Quantum field theory - particles as ripples and the emergence of fundamental properties]]", "[[Quantum gravity and its various programmes - the search for unified physics]]", "[[Noether's theorem]]", "[[Spinoza and the one substance - God or nature]]"]
 aangemaakt: 2026-06-02
@@ -130,7 +130,7 @@ The old picture of the world as a collection of things with properties seems to 
 
 Perhaps that's what a force is. No thing. A pattern of relation. An aspect of the music.
 
-## Concepts that come together here
+## Concepts that converge here
 
 - [[Gauge invariance and the gauge principle - how symmetry prescribes forces]] — symmetry as engine of structure
 - [[The architecture of the Standard Model - three families twelve particles and what is missing]] — concrete instantiation of the gauge principle
