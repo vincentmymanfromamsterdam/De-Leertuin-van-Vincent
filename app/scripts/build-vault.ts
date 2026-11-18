@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
-import { slugify } from '../lib/utils';
+import { slugify, makeSlugResolver } from '../lib/utils';
 import { config } from '../lib/config';
 import type { SectionKey } from '../lib/config-types';
 
@@ -12,6 +12,7 @@ const VAULT_DIR = path.join(__dirname, '..', config.vault.path);
 const ESSAYS_DIR = path.join(__dirname, '..', path.dirname(config.vault.path), 'essays');
 const OUTPUT_FILE = path.join(__dirname, '../data/concepts.json');
 const ESSAYS_OUTPUT = path.join(__dirname, '../data/essays.json');
+const IDEAS_OUTPUT = path.join(__dirname, '../data/ideas.json');
 const CACHE_FILE = path.join(__dirname, '../translations/cache.json');
 
 const PRIMARY = config.languages.primary;
@@ -289,6 +290,7 @@ async function buildConcepts(): Promise<void> {
 
     concepts.push({
       slug,
+      bestand: path.basename(file, '.md'),
       titel,
       domein,
       tags: Array.isArray(data.tags) ? data.tags : [],
@@ -372,6 +374,7 @@ async function buildEssays(): Promise<void> {
 
     essays.push({
       slug,
+      bestand: path.basename(file, '.md'),
       titel,
       domeinen,
       concepten: primaryConcepten,
@@ -402,9 +405,41 @@ async function buildEssays(): Promise<void> {
   console.log(`✓ Built ${essays.length} essay(s) → data/essays.json`);
 }
 
+/**
+ * Collects wikilinks from published notes and essays that do not lead to an
+ * existing note or essay. These are the "ideas for notes" shown at /ideeen.
+ */
+function buildIdeas(): void {
+  type Item = { slug: string; bestand?: string; titel: string; gerelateerd?: string[]; concepten?: { link: string }[] };
+  const concepts = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf-8')) as Item[];
+  const essays = JSON.parse(fs.readFileSync(ESSAYS_OUTPUT, 'utf-8')) as Item[];
+  const toConcept = makeSlugResolver(concepts);
+  const toEssay = makeSlugResolver(essays);
+
+  const ideas = new Map<string, { naam: string; bronnen: { titel: string; slug: string; type: string }[] }>();
+  const note = (naam: string, bron: Item, type: 'concept' | 'essay') => {
+    if (toConcept(naam) !== undefined || toEssay(naam) !== undefined) return;
+    const key = slugify(naam);
+    const idea = ideas.get(key) ?? { naam, bronnen: [] };
+    if (!idea.bronnen.some((b) => b.slug === bron.slug && b.type === type)) {
+      idea.bronnen.push({ titel: bron.titel, slug: bron.slug, type });
+    }
+    ideas.set(key, idea);
+  };
+  for (const c of concepts) for (const naam of c.gerelateerd ?? []) note(naam, c, 'concept');
+  for (const e of essays) for (const item of e.concepten ?? []) note(item.link, e, 'essay');
+
+  const sorted = [...ideas.values()].sort(
+    (a, b) => b.bronnen.length - a.bronnen.length || a.naam.localeCompare(b.naam, PRIMARY),
+  );
+  fs.writeFileSync(IDEAS_OUTPUT, JSON.stringify(sorted, null, 2), 'utf-8');
+  console.log(`✓ Built ${sorted.length} idea(s) → data/ideas.json`);
+}
+
 async function main() {
   await buildConcepts();
   await buildEssays();
+  buildIdeas();
 }
 
 main().catch((err) => {

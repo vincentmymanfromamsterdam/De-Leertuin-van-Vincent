@@ -5,7 +5,7 @@ titel: "Filosofie en haar institutionele context - waarom seculier denken een vr
 status: ripe
 tags: [institutionele-context, seculier-denken, censuur, Averroisme, vrije-pers, drukpers, Verlichting]
 bronnen: ["[[History of Western Philosophy - Russell]]"]
-gerelateerd: ["[[Thomas van Aquino en de synthese van Aristoteles en geloof]]", "[[Spinoza en de ene substantie - God of natuur]]", "[[Descartes en het cogito - het begin van de moderne filosofie]]", "[[Hume en de grens van het empirisme - scepsis gewoonte en het verdwijnende zelf]]", "[[Bibliotheek van Alexandrie]]"]
+gerelateerd: ["[[Thomas van Aquino en de synthese van Aristoteles en geloof]]", "[[Spinoza en de ene substantie - God of natuur]]", "[[Descartes en het cogito - het begin van de moderne filosofie]]", "[[Hume en de grens van het empirisme - scepsis gewoonte en het verdwijnende zelf]]", "[[De Bibliotheek van Alexandrië]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-06-02
@@ -23,7 +23,7 @@ Wanneer we over de geschiedenis van filosofie spreken, denken we vaak in termen 
 
 De Griekse filosofie van de zesde tot derde eeuw v.Chr. was uitzonderlijk in haar relatieve onafhankelijkheid van religieuze instituties. Dit had specifieke oorzaken. De Griekse polis was klein, gedecentraliseerd, en concurrerend; er was geen priesterklasse die filosofische orthodoxie kon afdwingen over alle steden tegelijk. De Griekse religie zelf was diffuus, narratief in plaats van dogmatisch, en kende geen heilige schrift dat als toetssteen voor afwijking kon dienen. Filosofen werden weliswaar soms vervolgd — Anaxagoras werd verbannen voor godslastering, Socrates ter dood veroordeeld — maar de instituties die hen ondersteunden (de academies van Plato en Aristoteles, de scholen van Epicurus en Zeno) bestonden onafhankelijk van enige tempel. Een filosoof kon in Athene worden veroordeeld en in Corinthe rustig verder werken. Deze institutionele dispersie was de feitelijke voorwaarde voor de openheid van het Griekse denken.
 
-De [[Bibliotheek van Alexandrie|Bibliotheek van Alexandrië]] vertegenwoordigde een hoogtepunt van seculiere geleerdheid — gesteund door het Ptolemeïsche staatsbeleid, niet door een tempel. Daar konden astronomen, wiskundigen, filologen en filosofen werken zonder dat hun bevindingen aan religieuze leerstellingen hoefden te beantwoorden. Eratosthenes mat de omtrek van de aarde, Aristarchus stelde een heliocentrisch model voor, en de bibliotheek beheerde teksten van alle filosofische scholen tegelijk, zonder een ervan tot officiële waarheid uit te roepen.
+De [[De Bibliotheek van Alexandrië|Bibliotheek van Alexandrië]] vertegenwoordigde een hoogtepunt van seculiere geleerdheid — gesteund door het Ptolemeïsche staatsbeleid, niet door een tempel. Daar konden astronomen, wiskundigen, filologen en filosofen werken zonder dat hun bevindingen aan religieuze leerstellingen hoefden te beantwoorden. Eratosthenes mat de omtrek van de aarde, Aristarchus stelde een heliocentrisch model voor, en de bibliotheek beheerde teksten van alle filosofische scholen tegelijk, zonder een ervan tot officiële waarheid uit te roepen.
 
 Dit was de uitzondering, niet de regel. Toen het Romeinse rijk christelijk werd en de oude instituties hun staatssteun verloren, verdween de seculiere geleerdheid uit het mediterrane gebied. De definitieve sluiting van Plato's Academie in 529 door Justinianus markeert deze overgang symbolisch — de filosofische school die negenhonderd jaar had bestaan, werd door keizerlijke decreet gesloten omdat ze "heidens" onderwijs gaf.
 

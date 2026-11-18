@@ -5,7 +5,7 @@ titel: "Entropie"
 status: ripe
 tags: [thermodynamica, kosmologie, tijd, orde]
 bronnen: ["[[Biggest Ideas - Carroll]]", "[[Six Easy Pieces - Feynman]]"]
-gerelateerd: ["[[Big Bang]]", "[[Pijl van de tijd]]", "[[Stellaire nucleosynthese]]"]
+gerelateerd: ["[[Big Bang]]", "[[De pijl van de tijd]]", "[[Stellaire nucleosynthese]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-04-17

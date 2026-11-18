@@ -5,7 +5,7 @@ titel: "Het Curie-punt"
 status: ripe
 tags: [magnetisme, fasen-overgang, symmetriebreking, vaste-stof, statistische-mechanica]
 bronnen: ["[[Feynman Lectures Vol I]]", "[[Biggest Ideas - Carroll]]"]
-gerelateerd: ["[[Spontane symmetriebreking]]", "[[Tweede hoofdwet van de thermodynamica]]", "[[Supergeleiding]]", "[[Pierre Curie]]", "[[Higgs-mechanisme]]"]
+gerelateerd: ["[[Symmetriebreking — waarom imperfectie de wereld maakt]]", "[[Tweede hoofdwet van de thermodynamica]]", "[[Supergeleiding]]", "[[Pierre Curie]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13
@@ -25,7 +25,7 @@ Niet elk metaal heeft een Curie-punt. Het is voorbehouden aan de vier ferromagne
 
 De Curie-temperaturen lopen wild uiteen omdat de uitwisselingsinteractie afhangt van het specifieke kristalrooster en de elektron-configuratie. Gadolinium verliest zijn magnetisme bij kamertemperatuur — een gadolinium-magneet in je hand wordt vanzelf "uit". Kobalt blijft daarentegen magnetisch tot bijna 1100 °C, wat het onmisbaar maakt voor permanente magneten in hoge-temperatuur toepassingen.
 
-Wat de fysica hier zo elegant maakt, is dat het Curie-punt een *fase-overgang* is in dezelfde wiskundige zin als smelten of koken. Boven Tc is het systeem rotatiesymmetrisch — alle richtingen zijn gelijk. Onder Tc kiest het systeem er één en breekt die symmetrie spontaan. Het is hetzelfde patroon dat terugkomt bij [[Supergeleiding]] (waar elektronen onder een kritieke temperatuur paarvorming kiezen), bij vloeibaar helium dat in superfluïde toestand gaat, en in een veel diepere zin bij het [[Higgs-mechanisme]] dat aan deeltjes hun massa geeft. Het Curie-punt is daarmee niet een curiositeit van de vaste-stoffysica maar de meest tastbare instantie van een principe dat tot in de fundamenten van de deeltjesfysica reikt.
+Wat de fysica hier zo elegant maakt, is dat het Curie-punt een *fase-overgang* is in dezelfde wiskundige zin als smelten of koken. Boven Tc is het systeem rotatiesymmetrisch — alle richtingen zijn gelijk. Onder Tc kiest het systeem er één en breekt die symmetrie spontaan. Het is hetzelfde patroon dat terugkomt bij [[Supergeleiding]] (waar elektronen onder een kritieke temperatuur paarvorming kiezen), bij vloeibaar helium dat in superfluïde toestand gaat, en in een veel diepere zin bij het [[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum|Higgs-mechanisme]] dat aan deeltjes hun massa geeft. Het Curie-punt is daarmee niet een curiositeit van de vaste-stoffysica maar de meest tastbare instantie van een principe dat tot in de fundamenten van de deeltjesfysica reikt.
 
 ## Waarom het ertoe doet
 De meeste mensen kennen magnetisme als een statische eigenschap — een ijzeren magneet is magnetisch, klaar. Maar magnetisme is in werkelijkheid een *fase* zoals water-vloeistof-ijs een fase is, en die fase kun je in en uit schakelen met temperatuur. Verhit een magneet boven 770 °C en hij is gewoon een stuk gloeiend metaal; koel hem af en het magnetisme komt vanzelf terug — maar de richting van die nieuwe magnetisatie is willekeurig, tenzij je er een ander magnetisch veld bij houdt. Dat is precies hoe permanente magneten in de fabriek worden "gemaakt": opgewarmd in een sterk extern veld, zodat ze de juiste richting kiezen als ze afkoelen door hun Curie-punt heen. De fysica van een koelkastmagneet is dus letterlijk symmetriebreking in actie.

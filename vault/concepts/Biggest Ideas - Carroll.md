@@ -42,7 +42,7 @@ Carroll is uniek: hij is zowel een actieve theoretisch fysicus (Johns Hopkins) a
 - Mogelijke note: [[Absolute vs relatieve ruimte]] — Newton vs Leibniz, kruisverband met filosofie
 
 **5. Time** — De aard van tijd, de pijl van de tijd, entropie en het verschil tussen verleden en toekomst.
-- Mogelijke note: [[Pijl van de tijd]] — waarom we het verleden herinneren maar niet de toekomst
+- Mogelijke note: [[De pijl van de tijd]] — waarom we het verleden herinneren maar niet de toekomst
 
 **6. Spacetime** — Hoe ruimte en tijd samensmelten in Einstein's speciale relativiteit.
 - Mogelijke note: [[Ruimtetijd]] — Minkowski's inzicht

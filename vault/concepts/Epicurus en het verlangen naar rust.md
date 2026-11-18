@@ -5,7 +5,7 @@ titel: "Epicurus en het verlangen naar rust"
 status: ripe
 tags: [hellenistisch, ethiek, epicurisme, atomisme]
 bronnen: ["[[HWP - Russell]]"]
-gerelateerd: ["[[Stoïcisme — wat je wel en niet kunt beheersen]]", "[[Democritus en het atomisme]]", "[[Socrates en het onderzochte leven]]"]
+gerelateerd: ["[[Stoïcisme — wat je wel en niet kunt beheersen]]", "[[Democritus en het atomisme]]", "[[Socrates en de methodische twijfel - ik weet dat ik niets weet]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-04-29

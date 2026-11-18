@@ -5,7 +5,7 @@ titel: "De geometrie van leegte: hoe vacuümverwachtingswaarden ons universum vo
 status: ripe
 tags: [kwantumvelden, kwantumvacuum, Higgs, symmetriebreking, metastabiliteit, vacuumverwachtingswaarde]
 bronnen: ["[[Biggest Ideas - Carroll]]", "[[The Big Picture - Carroll]]"]
-gerelateerd: ["[[Fase-overgangen van het vroege universum - een cascade van gebroken symmetrieen]]", "[[Het Curie-punt]]", "[[De geboorte van de vier krachten]]", "[[Apeiron, prima materia, kwantumvacuum - de zoektocht naar het oer-substraat]]", "[[Higgs-mechanisme]]"]
+gerelateerd: ["[[Fase-overgangen van het vroege universum - een cascade van gebroken symmetrieen]]", "[[Het Curie-punt]]", "[[De geboorte van de vier krachten]]", "[[Apeiron, prima materia, kwantumvacuum - de zoektocht naar het oer-substraat]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13

@@ -5,7 +5,7 @@ titel: "Witte gaten - mathematische mogelijkheid en kwantumzwaartekracht-relevan
 status: ripe
 tags: [witte-gaten, Kruskal-Szekeres, Schwarzschild, kwantumzwaartekracht, Planck-ster, zwart-gat-remnants, donkere-materie, Rovelli, informatieparadox]
 bronnen: ["[[Quantum Gravity - Rovelli]]", "[[Covariant Loop Quantum Gravity - Rovelli Vidotto]]", "[[Biggest Ideas - Carroll]]"]
-gerelateerd: ["[[Het einde van een zwart gat - waarom verdamping geen mysterie hoeft te zijn]]", "[[Kwantumzwaartekracht en haar verschillende programmas - de zoektocht naar verenigde fysica]]", "[[Het holografisch principe - informatie als bouwsteen van ruimtetijd]]", "[[Heet warm of koud - de zoektocht naar wat donkere materie eigenlijk is]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]"]
+gerelateerd: ["[[Het einde van een zwart gat - Hawking-verdamping en de finale explosie]]", "[[Kwantumzwaartekracht en haar verschillende programmas - de zoektocht naar verenigde fysica]]", "[[Het holografisch principe - informatie als bouwsteen van ruimtetijd]]", "[[Heet warm of koud - de zoektocht naar wat donkere materie eigenlijk is]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-07-05
@@ -71,7 +71,7 @@ De Planck-ster kan vervolgens door kwantum-tunneling transformeren in een wit ga
 
 In 2018 publiceerden Bianchi, Christodoulou, D'Ambrosio, Haggard en Rovelli een invloedrijke paper in *Classical and Quantum Gravity* getiteld "White holes as remnants: a surprising scenario for the end of a black hole". Het idee: aan het einde van de Hawking-verdamping van een zwart gat blijft geen singulariteit over, en ook geen totale vernietiging, maar een lang-levend **wit-gat-remnant** met Planck-schaal massa (ongeveer $10^{-8}$ kg, de Planck-massa).
 
-Deze remnants zouden buitengewoon lang leven — schalen die vergelijkbaar zijn met of veel langer dan de leeftijd van het universum — omdat hun ontsnappingssnelheid van massa astronomisch klein is bij zulke kleine grootte. In feite zijn ze bijna stabiel op kosmologische tijdschalen. Belangrijker: ze zouden alle informatie bevatten die in het oorspronkelijke zwart gat viel, waardoor het beruchte [[Het einde van een zwart gat - waarom verdamping geen mysterie hoeft te zijn|informatieparadox]] wordt opgelost zonder dat informatie via Hawking-straling naar buiten moet.
+Deze remnants zouden buitengewoon lang leven — schalen die vergelijkbaar zijn met of veel langer dan de leeftijd van het universum — omdat hun ontsnappingssnelheid van massa astronomisch klein is bij zulke kleine grootte. In feite zijn ze bijna stabiel op kosmologische tijdschalen. Belangrijker: ze zouden alle informatie bevatten die in het oorspronkelijke zwart gat viel, waardoor het beruchte [[Het einde van een zwart gat - Hawking-verdamping en de finale explosie|informatieparadox]] wordt opgelost zonder dat informatie via Hawking-straling naar buiten moet.
 
 Dit is filosofisch elegant. Waar het traditionele informatieparadox de theoretische fysica al bijna een halve eeuw plaagt (Hawking's oorspronkelijke paper is uit 1976), biedt het wit-gat-remnant scenario een specifieke uitweg. Informatie verdwijnt niet, wordt niet via subtiele correlaties in Hawking-straling naar buiten gesmokkeld (zoals in de holografische replica-wormhole-oplossing), maar blijft simpelweg opgesloten in het lang-levende remnant.
 

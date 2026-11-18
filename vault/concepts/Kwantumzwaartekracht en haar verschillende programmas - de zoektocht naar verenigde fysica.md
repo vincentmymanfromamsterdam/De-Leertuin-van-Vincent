@@ -5,7 +5,7 @@ titel: "Kwantumzwaartekracht en haar verschillende programma's - de zoektocht na
 status: ripe
 tags: [kwantumzwaartekracht, snaartheorie, lus-kwantumzwaartekracht, asymptotic-safety, holografie, Planck-schaal, emergente-ruimtetijd]
 bronnen: ["[[Biggest Ideas - Carroll]]", "[[Quantum Gravity - Rovelli]]", "[[The Road to Reality - Penrose]]"]
-gerelateerd: ["[[Kwantumveldtheorie - deeltjes als ripples en de emergentie van fundamentele eigenschappen]]", "[[Decoherentie en de overgang van kwantum naar klassiek]]", "[[Het meetprobleem en zijn interpretaties - waarom een definitieve uitkomst niet vanzelf volgt]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]", "[[Het einde van een zwart gat - waarom verdamping geen mysterie hoeft te zijn]]"]
+gerelateerd: ["[[Kwantumveldtheorie - deeltjes als ripples en de emergentie van fundamentele eigenschappen]]", "[[Decoherentie en de overgang van kwantum naar klassiek]]", "[[Het meetprobleem en zijn interpretaties - waarom een definitieve uitkomst niet vanzelf volgt]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]", "[[Het einde van een zwart gat - Hawking-verdamping en de finale explosie]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-06-02
@@ -75,7 +75,7 @@ Mark Van Raamsdonk's werk vanaf 2010 heeft beargumenteerd dat **ruimtetijd uit v
 
 Dit verandert de aard van het hele programma. Niet alle programma's accepteren deze wending — LQG en asymptotic safety blijven dichter bij traditionele kwantisatie-benaderingen — maar de holografische invalshoek heeft zoveel theoretische tractie gekregen dat ze in 2026 als een van de centrale paradigma's geldt.
 
-Een bijbehorend recent inzicht: het [[Het einde van een zwart gat - waarom verdamping geen mysterie hoeft te zijn|zwart-gat-informatieparadox]] dat we eerder bespraken, is in 2019-2020 substantieel opgelost via "replica wormhole"-berekeningen die gebruikmaken van precies deze emergente-ruimtetijd-ideeën. Dit is een directe toepassing van kwantum-informatie-theorie op kwantumzwaartekracht, en wordt door velen gezien als de eerste echte voortgang in deze richting in decennia.
+Een bijbehorend recent inzicht: het [[Het einde van een zwart gat - Hawking-verdamping en de finale explosie|zwart-gat-informatieparadox]] dat we eerder bespraken, is in 2019-2020 substantieel opgelost via "replica wormhole"-berekeningen die gebruikmaken van precies deze emergente-ruimtetijd-ideeën. Dit is een directe toepassing van kwantum-informatie-theorie op kwantumzwaartekracht, en wordt door velen gezien als de eerste echte voortgang in deze richting in decennia.
 
 ## Empirische beperkingen
 

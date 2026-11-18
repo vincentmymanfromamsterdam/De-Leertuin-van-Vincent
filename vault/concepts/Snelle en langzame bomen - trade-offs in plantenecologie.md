@@ -5,7 +5,7 @@ titel: "Snelle en langzame bomen: trade-offs in plantenecologie"
 status: ripe
 tags: [ecologie, evolutie, plantenstrategie, successie, leaf-economics-spectrum]
 bronnen: ["[[Entangled Life - Sheldrake]]", "[[The Garden Jungle - Goulson]]"]
-gerelateerd: ["[[Wapenwedloop in het strooisel - hoe planten hun eigen vertering remmen]]", "[[Successie]]", "[[Regenwormen als bodembouwers]]", "[[Wood wide web]]", "[[Trofische cascade]]"]
+gerelateerd: ["[[Wapenwedloop in het strooisel - hoe planten hun eigen vertering remmen]]", "[[Hoe successie werkt - pioniers maken de schaduw waarin hun opvolgers wachten]]", "[[Regenwormen als bodembouwers]]", "[[Wood wide web]]", "[[Trofische cascade]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13
@@ -35,7 +35,7 @@ Aan de langzame kant staan beuk, eik, naaldbomen, en in extreme vorm groenblijve
 
 De trade-off is fundamenteel: elke gram tannine, lignine of dikke celwand is een gram die niet in nieuwe groei ging zitten. Een snelle boom kan zich geen dikke verdediging veroorloven, want hij is bezig met de race om licht voordat tragere soorten hem inhalen. Een langzame boom kan zich geen dun, kwetsbaar blad veroorloven, want hij investeert in een blad dat jaren mee moet. De boom kan niet beide tegelijk zijn — fysiologisch noch evolutionair.
 
-**Waarom beide strategieën bestaan blijven**, is een vraag van **verstoring**. Een storm, een bosbrand, een omgevallen reus, een mens met een zaag: ze creëren open plekken waar plotseling licht en ruimte beschikbaar zijn. Daar winnen de snelle pioniers — berk, els, esdoorn — die in een paar jaar 10 meter hoog staan en de open plek sluiten. Onder hun bladerdak ontkiemen langzaam de zaden van beuk en eik. Decennia later schaduwen die de pioniers uit, en het bos verschuift naar een [[Successie|climaxstadium]] gedomineerd door de langzame, defensieve soorten — tot de volgende verstoring de cyclus herstart.
+**Waarom beide strategieën bestaan blijven**, is een vraag van **verstoring**. Een storm, een bosbrand, een omgevallen reus, een mens met een zaag: ze creëren open plekken waar plotseling licht en ruimte beschikbaar zijn. Daar winnen de snelle pioniers — berk, els, esdoorn — die in een paar jaar 10 meter hoog staan en de open plek sluiten. Onder hun bladerdak ontkiemen langzaam de zaden van beuk en eik. Decennia later schaduwen die de pioniers uit, en het bos verschuift naar een [[Hoe successie werkt - pioniers maken de schaduw waarin hun opvolgers wachten|climaxstadium]] gedomineerd door de langzame, defensieve soorten — tot de volgende verstoring de cyclus herstart.
 
 Zonder pioniers zou een verstoord bos kale grond blijven of erosie ondergaan. Zonder klimaxsoorten zou een bos nooit een diep, stabiel ecosysteem worden. Beide hebben elkaar nodig, op verschillende momenten in dezelfde plek.
 

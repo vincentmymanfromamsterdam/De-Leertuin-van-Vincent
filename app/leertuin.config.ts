@@ -125,6 +125,11 @@ const config: LeertuinConfig = {
       essayReflection: 'Wat dit zichtbaar maakt',
       essayConcepts: 'Concepten die hier samenkomen',
       essayFurtherReading: 'Verder lezen',
+      ideasTitle: 'Ideeën voor notes',
+      ideasIntro: 'Onderwerpen waarnaar bestaande notes verwijzen, maar die nog niet geschreven zijn. De lijst wordt bij elke build opnieuw opgemaakt.',
+      ideasEmpty: 'Alle verwijzingen leiden naar een bestaande note.',
+      ideasMentionedIn: 'Genoemd in',
+      ideasLink: 'Bekijk de ideeënlijst →',
     },
     en: {
       showAnother: 'Show another concept',
@@ -150,6 +155,11 @@ const config: LeertuinConfig = {
       essayReflection: 'What this makes visible',
       essayConcepts: 'Concepts that converge here',
       essayFurtherReading: 'Further reading',
+      ideasTitle: 'Ideas for notes',
+      ideasIntro: 'Topics that existing notes refer to but that have not been written yet. The list is rebuilt on every build.',
+      ideasEmpty: 'Every reference leads to an existing note.',
+      ideasMentionedIn: 'Mentioned in',
+      ideasLink: 'View the list of ideas →',
     },
   },
 };

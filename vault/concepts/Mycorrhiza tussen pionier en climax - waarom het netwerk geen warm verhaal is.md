@@ -5,7 +5,7 @@ titel: "Mycorrhiza tussen pionier en climax - waarom het netwerk geen warm verha
 status: ripe
 tags: [mycorrhiza, successie, pioniersoorten, climaxsoorten, reciprocal-reward, plant-soil-feedback, Karst-controverse]
 bronnen: ["[[Entangled Life - Sheldrake]]", "[[Silent Earth - Goulson]]"]
-gerelateerd: ["[[Het wood wide web - mycorrhiza-verbindingen onder de grond]]", "[[Pioniersoorten en climaxsoorten - hoe een bos zichzelf ontwikkelt]]", "[[De stille economie van een blad - bladstrategieen en het bladeconomie-spectrum]]"]
+gerelateerd: ["[[Wood wide web]]", "[[Hoe successie werkt - pioniers maken de schaduw waarin hun opvolgers wachten]]", "[[De stille economie van een blad - bladstrategieen en het bladeconomie-spectrum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-06-02

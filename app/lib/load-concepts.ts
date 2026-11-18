@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-import type { Concept, Essay } from './types';
+import type { Concept, Essay, Idea } from './types';
 import { config } from './config';
 
 const CONCEPT_FIELDS = ['titel', 'kern', 'uitleg', 'waarom', 'openVragen', 'verder_lezen'] as const;
@@ -48,6 +48,17 @@ export function loadEssays(lang: string = config.languages.primary): Essay[] {
     ) as Essay[];
     if (lang === config.languages.primary) return essays;
     return essays.map((e) => promoteSecondary(e, lang, ESSAY_FIELDS));
+  } catch {
+    return [];
+  }
+}
+
+/** Notes that are linked to but not written yet (see scripts/build-vault.ts). */
+export function loadIdeas(): Idea[] {
+  try {
+    return JSON.parse(
+      readFileSync(path.join(process.cwd(), 'data/ideas.json'), 'utf-8'),
+    ) as Idea[];
   } catch {
     return [];
   }

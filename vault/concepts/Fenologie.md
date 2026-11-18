@@ -5,7 +5,7 @@ titel: "Fenologie"
 status: ripe
 tags: [ecologie, klimaatverandering, seizoenen, bestuiving, observatie]
 bronnen: ["[[The Garden Jungle - Goulson]]"]
-gerelateerd: ["[[Trofische cascade]]", "[[Nachtvlinders als vergeten bestuivers]]", "[[Wood wide web]]", "[[Klimaatverandering]]", "[[Dave Goulson]]"]
+gerelateerd: ["[[Trofische cascade]]", "[[Nachtvlinders als vergeten bestuivers]]", "[[Wood wide web]]", "[[Klimaatverandering in geologisch perspectief - planetaire successie in actie]]", "[[Dave Goulson]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-04

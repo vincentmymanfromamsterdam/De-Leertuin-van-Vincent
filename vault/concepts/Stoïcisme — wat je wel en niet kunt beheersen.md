@@ -5,7 +5,7 @@ titel: "Stoïcisme — wat je wel en niet kunt beheersen"
 status: ripe
 tags: [hellenistisch, ethiek, stoicisme, levenskunst]
 bronnen: ["[[HWP - Russell]]"]
-gerelateerd: ["[[Socrates en het onderzochte leven]]", "[[Heraclitus en de logos]]", "[[Aristoteles en de vier oorzaken]]"]
+gerelateerd: ["[[Socrates en de methodische twijfel - ik weet dat ik niets weet]]", "[[Heraclitus en de logos]]", "[[Aristoteles en de vier oorzaken]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-04-29

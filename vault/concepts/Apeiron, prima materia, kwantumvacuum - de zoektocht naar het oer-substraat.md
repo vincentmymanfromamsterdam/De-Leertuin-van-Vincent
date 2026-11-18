@@ -5,7 +5,7 @@ titel: "Apeiron, prima materia, kwantumvacuüm: de zoektocht naar het oer-substr
 status: ripe
 tags: [metafysica, presocraten, aristoteles, kwantumvacuüm, oerstof, ontologie]
 bronnen: ["[[HWP - Russell]]", "[[Biggest Ideas - Carroll]]"]
-gerelateerd: ["[[Anaximander]]", "[[Aristoteles]]", "[[Democritus en het atomisme]]", "[[Fase-overgangen van het vroege universum - een cascade van gebroken symmetrieen]]", "[[Het Curie-punt]]", "[[Higgs-mechanisme]]"]
+gerelateerd: ["[[Anaximander]]", "[[Aristoteles]]", "[[Democritus en het atomisme]]", "[[Fase-overgangen van het vroege universum - een cascade van gebroken symmetrieen]]", "[[Het Curie-punt]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13
@@ -29,7 +29,7 @@ Aristoteles splitste daarmee de presocratische vraag "waar komt het vandaan?" in
 
 Dit antwoord domineerde de westerse filosofie 1.900 jaar lang. Pas in de moderne wetenschap kwam er een fundamenteel andere benadering.
 
-In de twintigste eeuw ontdekte de natuurkunde iets verbijsterends: het **vacuüm is niet leeg**. Wat we "lege ruimte" noemen is in werkelijkheid een grondtoestand van kwantumvelden. Elk soort deeltje — elektronen, quarks, fotonen, Higgs — heeft een corresponderend veld dat overal aanwezig is. In het vacuüm zijn die velden in hun laagste energie-toestand, maar ze bestaan wel. Virtuele deeltjes flikkeren voortdurend in en uit bestaan. Het [[Higgs-mechanisme|Higgs-veld]] geeft deeltjes hun massa door er constant mee te interageren. Het kwantumvacuüm is een levendig, structurerend medium.
+In de twintigste eeuw ontdekte de natuurkunde iets verbijsterends: het **vacuüm is niet leeg**. Wat we "lege ruimte" noemen is in werkelijkheid een grondtoestand van kwantumvelden. Elk soort deeltje — elektronen, quarks, fotonen, Higgs — heeft een corresponderend veld dat overal aanwezig is. In het vacuüm zijn die velden in hun laagste energie-toestand, maar ze bestaan wel. Virtuele deeltjes flikkeren voortdurend in en uit bestaan. Het [[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum|Higgs-veld]] geeft deeltjes hun massa door er constant mee te interageren. Het kwantumvacuüm is een levendig, structurerend medium.
 
 En hier wordt de parallel met de oude filosofen suggestief. Het kwantumvacuüm is in zekere zin "pure potentie" — een grondtoestand waaruit alle werkelijke deeltjes spontaan kunnen verschijnen door [[Fase-overgangen van het vroege universum - een cascade van gebroken symmetrieen|symmetriebreking]]. Het heeft zelf geen vorm, maar elke vorm kan eruit voortkomen. Zoals Aristoteles' prima materia "wacht" om vorm aan te nemen, "wacht" het kwantumvacuüm op fluctuaties die structuur creëren. Zoals Anaximander's apeiron alle tegenstellingen kon voortbrengen, kan het kwantumvacuüm zowel deeltjes als antideeltjes baren.
 

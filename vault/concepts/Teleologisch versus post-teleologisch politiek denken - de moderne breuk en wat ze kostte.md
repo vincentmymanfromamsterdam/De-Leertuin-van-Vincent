@@ -5,7 +5,7 @@ titel: "Teleologisch versus post-teleologisch politiek denken - de moderne breuk
 status: ripe
 tags: [politieke-filosofie, teleologie, Aristoteles, Hobbes, Locke, Rousseau, MacIntyre, moderniteit, natuurrecht]
 bronnen: ["[[Politica - Aristoteles]]", "[[Leviathan - Hobbes]]", "[[Second Treatise of Government - Locke]]", "[[Du contrat social - Rousseau]]", "[[After Virtue - MacIntyre]]"]
-gerelateerd: ["[[Thomas van Aquino en de synthese van Aristoteles en geloof]]", "[[De vier oorzaken van Aristoteles]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]"]
+gerelateerd: ["[[Thomas van Aquino en de synthese van Aristoteles en geloof]]", "[[Aristoteles en de vier oorzaken]]", "[[Geldig versus bruikbaar - waarom een onweerlegbaar argument niets hoeft te verklaren]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-07-02
@@ -23,7 +23,7 @@ De breuk tussen deze twee manieren van denken is een van de meest invloedrijke g
 
 **Het aristoteliaanse model.**
 
-Aristoteles' politieke filosofie is expliciet en systematisch teleologisch. Zij vloeit direct voort uit zijn algemene metafysica van de [[De vier oorzaken van Aristoteles|vier oorzaken]] — materieel, formeel, efficiënt, en doel. Voor Aristoteles heeft alles wat bestaat een intrinsiek doel dat zijn aard bepaalt, en politieke gemeenschappen zijn hierop geen uitzondering.
+Aristoteles' politieke filosofie is expliciet en systematisch teleologisch. Zij vloeit direct voort uit zijn algemene metafysica van de [[Aristoteles en de vier oorzaken|vier oorzaken]] — materieel, formeel, efficiënt, en doel. Voor Aristoteles heeft alles wat bestaat een intrinsiek doel dat zijn aard bepaalt, en politieke gemeenschappen zijn hierop geen uitzondering.
 
 De *Politica* opent met een uitspraak die het hele gebouw draagt: "elke polis is een vorm van gemeenschap, en elke gemeenschap wordt opgericht met het oog op enig goed." Direct daarna komt zijn beroemdste politieke stelling: "de mens is van nature een politiek dier" (zoon politikon). Deze twee uitspraken vormen de teleologische kern van zijn benadering. De polis is geen contingente sociale constructie maar een natuurlijk fenomeen. De mens realiseert pas zijn volledige natuur binnen de polis. Buiten de polis leven is ofwel onder-menselijk (een dier) ofwel bovenmenselijk (een god).
 

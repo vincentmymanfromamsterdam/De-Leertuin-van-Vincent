@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Essay, EssayConcept, Concept } from '@/lib/types';
-import { slugify } from '@/lib/utils';
+import { makeSlugResolver } from '@/lib/utils';
 import { config, getDomain, tailwindClassesFor } from '@/lib/config';
 
 interface Props {
@@ -23,7 +23,7 @@ export default function EssayDisplay({
   const base = isSecondary ? `/${lang}` : '';
 
   const otherLang = isSecondary ? config.languages.primary : config.languages.secondary;
-  const knownSlugs = new Set(concepts.map((c) => c.slug));
+  const resolveSlug = makeSlugResolver(concepts);
 
   // Use the first domain's color for the callout/border accent
   const firstDomain = essay.domeinen.map(getDomain).find(Boolean);
@@ -154,8 +154,8 @@ export default function EssayDisplay({
             </h2>
             <ul className="prose">
               {essay.concepten.map((item: EssayConcept, i) => {
-                const slug = slugify(item.link);
-                const linked = knownSlugs.has(slug);
+                const slug = resolveSlug(item.link);
+                const linked = slug !== undefined;
                 return (
                   <li key={`${item.link}-${i}`} className="leading-relaxed">
                     {linked ? (

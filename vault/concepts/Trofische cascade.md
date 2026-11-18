@@ -5,7 +5,7 @@ titel: "Trofische cascade"
 status: ripe
 tags: [ecologie, voedselweb, top-predatoren, rewilding, biodiversiteit]
 bronnen: ["[[Wilding - Tree]]", "[[The Garden Jungle - Goulson]]"]
-gerelateerd: ["[[Wood wide web]]", "[[Successie]]", "[[Isabella Tree]]", "[[Robert Paine]]", "[[Biodiversiteit]]"]
+gerelateerd: ["[[Wood wide web]]", "[[Hoe successie werkt - pioniers maken de schaduw waarin hun opvolgers wachten]]", "[[Isabella Tree]]", "[[Robert Paine]]", "[[Biodiversiteit]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-04

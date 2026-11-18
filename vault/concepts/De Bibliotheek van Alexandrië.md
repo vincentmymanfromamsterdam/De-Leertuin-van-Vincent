@@ -5,7 +5,7 @@ titel: "De Bibliotheek van Alexandrië"
 status: ripe
 tags: [hellenistisch, kennis, verlies, wetenschap, beschaving]
 bronnen: ["[[Cosmos - Sagan]]", "[[HWP - Russell]]"]
-gerelateerd: ["[[Socrates en het onderzochte leven]]", "[[Democritus en het atomisme]]", "[[Arche]]"]
+gerelateerd: ["[[Socrates en de methodische twijfel - ik weet dat ik niets weet]]", "[[Democritus en het atomisme]]", "[[Arche]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-04-29

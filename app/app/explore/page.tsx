@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
 import { config, getDomain, tailwindClassesFor } from '@/lib/config';
-import { loadConcepts, loadEssays } from '@/lib/load-concepts';
+import { loadConcepts, loadEssays, loadIdeas } from '@/lib/load-concepts';
 import EssayList from '@/components/EssayList';
 
 export default function ExplorePage() {
@@ -9,6 +9,7 @@ export default function ExplorePage() {
   const L = config.ui[lang];
   const concepts = loadConcepts(lang);
   const essays = config.essaysEnabled ? loadEssays(lang) : [];
+  const ideas = loadIdeas();
   const hasSecondary = !!config.languages.secondary;
 
   return (
@@ -89,6 +90,28 @@ export default function ExplorePage() {
             <EssayList essays={essays} lang={lang} base="" />
           </section>
         )}
+
+        <section
+          className="mt-16 pt-10 border-t"
+          style={{ borderColor: 'var(--border)' }}
+        >
+          <h2 className="text-2xl font-semibold mb-2 tracking-tight">{L.ideasTitle}</h2>
+          <p
+            className="text-sm mb-4 opacity-40"
+            style={{ fontFamily: 'system-ui, sans-serif' }}
+          >
+            {ideas.length > 0 ? L.ideasIntro : L.ideasEmpty}
+          </p>
+          {ideas.length > 0 && (
+            <Link
+              href="/ideeen"
+              className="text-sm underline underline-offset-2 opacity-70 hover:opacity-100 transition-opacity"
+              style={{ fontFamily: 'system-ui, sans-serif' }}
+            >
+              {L.ideasLink} ({ideas.length})
+            </Link>
+          )}
+        </section>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ titel: "Fase-overgangen van het vroege universum: een cascade van gebroken symme
 status: ripe
 tags: [kosmologie, fase-overgang, symmetriebreking, vroege-heelal, statistische-mechanica, quark-gluon-plasma]
 bronnen: ["[[Biggest Ideas - Carroll]]", "[[The Big Picture - Carroll]]"]
-gerelateerd: ["[[Het Curie-punt]]", "[[De geboorte van de vier krachten]]", "[[Big Bang]]", "[[De pijl van de tijd]]", "[[Higgs-mechanisme]]"]
+gerelateerd: ["[[Het Curie-punt]]", "[[De geboorte van de vier krachten]]", "[[Big Bang]]", "[[De pijl van de tijd]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13

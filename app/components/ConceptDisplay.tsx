@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Concept } from '@/lib/types';
-import { slugify } from '@/lib/utils';
+import { makeSlugResolver } from '@/lib/utils';
 import { config, getDomain, tailwindClassesFor } from '@/lib/config';
 import type { SectionKey } from '@/lib/config-types';
 import TodayDate from './TodayDate';
@@ -45,7 +45,7 @@ export default function ConceptDisplay({
   const cfg = domain ? tailwindClassesFor(domain.color) : null;
   const domainLabel = domain?.label[lang] ?? domain?.label[config.languages.primary] ?? concept.domein;
 
-  const knownSlugs = new Set(allConcepts.map((c) => c.slug));
+  const resolveSlug = makeSlugResolver(allConcepts);
 
   // Pre-compute the section blocks we want to render in order.
   const sections = config.sections.map((s) => {
@@ -197,8 +197,8 @@ export default function ConceptDisplay({
             </p>
             <div className="flex flex-wrap gap-2">
               {concept.gerelateerd.map((name) => {
-                const slug = slugify(name);
-                const linked = knownSlugs.has(slug);
+                const slug = resolveSlug(name);
+                const linked = slug !== undefined;
                 const cls =
                   'rounded-full px-3 py-1 text-sm border transition-opacity hover:opacity-100 opacity-70';
                 return linked ? (

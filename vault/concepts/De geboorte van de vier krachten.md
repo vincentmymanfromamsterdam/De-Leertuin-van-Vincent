@@ -5,7 +5,7 @@ titel: "De geboorte van de vier krachten"
 status: ripe
 tags: [kosmologie, fase-overgang, symmetriebreking, fundamentele-krachten, vroege-heelal]
 bronnen: ["[[Biggest Ideas - Carroll]]", "[[Six Easy Pieces - Feynman]]"]
-gerelateerd: ["[[Het Curie-punt]]", "[[Higgs-mechanisme]]", "[[Big Bang]]", "[[Speciale relativiteit — niets is sneller dan licht]]", "[[De pijl van de tijd]]"]
+gerelateerd: ["[[Het Curie-punt]]", "[[Het Higgs-mechanisme - hoe massa ontstaat in een symmetrisch universum]]", "[[Big Bang]]", "[[Speciale relativiteit — niets is sneller dan licht]]", "[[De pijl van de tijd]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13

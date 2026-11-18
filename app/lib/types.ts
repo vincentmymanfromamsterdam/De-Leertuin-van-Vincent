@@ -11,6 +11,8 @@ export type Domein = string;
 
 export interface Concept {
   slug: string;
+  /** File name without extension — what wikilinks in the vault point at. */
+  bestand?: string;
   titel: string;
   domein: Domein;
   tags: string[];
@@ -55,4 +57,14 @@ export interface Essay {
   tekst?: string;
   /** Dynamic secondary-language fields. */
   [key: string]: unknown;
+}
+
+/**
+ * A note that is linked to from published notes or essays but does not exist yet.
+ * Generated at build time into data/ideas.json.
+ */
+export interface Idea {
+  naam: string;
+  /** Published notes and essays that link to it. */
+  bronnen: { titel: string; slug: string; type: 'concept' | 'essay' }[];
 }

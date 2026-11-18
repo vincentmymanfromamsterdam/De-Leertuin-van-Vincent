@@ -5,7 +5,7 @@ titel: "Wapenwedloop in het strooisel: hoe planten hun eigen vertering remmen"
 status: ripe
 tags: [ecologie, coevolutie, koolstofcyclus, bodembiologie, plantenchemie]
 bronnen: ["[[Entangled Life - Sheldrake]]", "[[The Garden Jungle - Goulson]]"]
-gerelateerd: ["[[Regenwormen als bodembouwers]]", "[[Wood wide web]]", "[[Compost als ecosysteem]]", "[[Successie]]", "[[Sphagnum]]"]
+gerelateerd: ["[[Regenwormen als bodembouwers]]", "[[Wood wide web]]", "[[Compost als ecosysteem]]", "[[Hoe successie werkt - pioniers maken de schaduw waarin hun opvolgers wachten]]", "[[Sphagnum]]"]
 concept_of_day_eligible: true
 last_shown: null
 aangemaakt: 2026-05-13
