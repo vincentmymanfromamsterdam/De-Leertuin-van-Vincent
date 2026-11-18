@@ -76,6 +76,15 @@ export default function ConceptDisplay({
             {config.brand.name}
           </Link>
           <div className="flex items-center gap-4">
+            {!isDetail && base === '' && (
+              <Link
+                href="/taal"
+                className="text-sm opacity-40 hover:opacity-100 transition-opacity"
+                style={{ fontFamily: 'system-ui, sans-serif' }}
+              >
+                Taal
+              </Link>
+            )}
             {isDetail && (
               <>
                 <Link

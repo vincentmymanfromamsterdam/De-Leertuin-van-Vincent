@@ -68,3 +68,24 @@ export interface Idea {
   /** Published notes and essays that link to it. */
   bronnen: { titel: string; slug: string; type: 'concept' | 'essay' }[];
 }
+
+/**
+ * A word card from vault/taal/woorden, for the /taal vocabulary trainer.
+ * Generated at build time into data/words.json.
+ */
+export interface Word {
+  woord: string;
+  soort: string;
+  betekenis: string;
+  /** What you would say in everyday words instead. */
+  alledaags: string;
+  /** Fixed combinations the word occurs in. */
+  verbindingen: string[];
+  /** Sentence with one ___ gap. */
+  gatzin: string;
+  /** The form that fits the gap. */
+  invul: string;
+  volgorde: number;
+  /** A sentence from a published note that uses the word. */
+  voorbeeld?: { zin: string; titel: string; slug: string };
+}

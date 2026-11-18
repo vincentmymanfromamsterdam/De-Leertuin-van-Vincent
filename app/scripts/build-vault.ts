@@ -13,6 +13,8 @@ const ESSAYS_DIR = path.join(__dirname, '..', path.dirname(config.vault.path), '
 const OUTPUT_FILE = path.join(__dirname, '../data/concepts.json');
 const ESSAYS_OUTPUT = path.join(__dirname, '../data/essays.json');
 const IDEAS_OUTPUT = path.join(__dirname, '../data/ideas.json');
+const WORDS_DIR = path.join(__dirname, '..', path.dirname(config.vault.path), 'taal', 'woorden');
+const WORDS_OUTPUT = path.join(__dirname, '../data/words.json');
 const CACHE_FILE = path.join(__dirname, '../translations/cache.json');
 
 const PRIMARY = config.languages.primary;
@@ -436,10 +438,77 @@ function buildIdeas(): void {
   console.log(`✓ Built ${sorted.length} idea(s) → data/ideas.json`);
 }
 
+/**
+ * Reads the word cards in vault/taal/woorden and, for each word, looks up one
+ * sentence in the published notes that uses it. Output feeds the /taal page.
+ */
+function buildWords(): void {
+  type Note = { slug: string; titel: string; kern?: string; uitleg?: string; waarom?: string };
+  if (!fs.existsSync(WORDS_DIR)) {
+    fs.writeFileSync(WORDS_OUTPUT, '[]', 'utf-8');
+    console.log('✓ No word cards (vault/taal/woorden missing) → data/words.json');
+    return;
+  }
+  const notes = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf-8')) as Note[];
+  const plain = (html: string) =>
+    html
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&#x27;|&#39;/g, "'")
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/\s+/g, ' ')
+      .trim();
+  const sentences: { zin: string; titel: string; slug: string }[] = [];
+  for (const n of notes) {
+    const text = plain([n.kern, n.uitleg, n.waarom].filter(Boolean).join(' '));
+    for (const zin of text.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ý])/)) {
+      if (zin.length >= 50 && zin.length <= 200) sentences.push({ zin, titel: n.titel, slug: n.slug });
+    }
+  }
+  const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
+  const list = (v: unknown) => (Array.isArray(v) ? v.map(str).filter(Boolean) : []);
+
+  const words = [];
+  for (const file of fs.readdirSync(WORDS_DIR).filter((f) => f.endsWith('.md')).sort()) {
+    const { data } = matter(fs.readFileSync(path.join(WORDS_DIR, file), 'utf-8'));
+    const woord = str(data.woord);
+    const gatzin = str(data.gatzin);
+    if (data.type !== 'woord' || data.status !== 'actief' || !woord || !str(data.betekenis)) continue;
+    if (gatzin.split('___').length !== 2) {
+      console.warn(`⚠ ${file}: gatzin needs exactly one ___ (skipped)`);
+      continue;
+    }
+    const vormen = list(data.vormen).length ? list(data.vormen) : [woord];
+    const re = new RegExp(`(?<![\\p{L}-])(${vormen.map(esc).join('|')})(?![\\p{L}-])`, 'iu');
+    const hits = sentences.filter((s) => re.test(s.zin));
+    // Shortest matching sentence reads best on a card.
+    const voorbeeld = hits.sort((a, b) => a.zin.length - b.zin.length)[0];
+    words.push({
+      woord,
+      soort: str(data.soort),
+      betekenis: str(data.betekenis),
+      alledaags: str(data.alledaags),
+      verbindingen: list(data.verbindingen),
+      gatzin,
+      invul: str(data.invul) || woord,
+      volgorde: typeof data.volgorde === 'number' ? data.volgorde : 9999,
+      ...(voorbeeld ? { voorbeeld } : {}),
+    });
+  }
+  words.sort((a, b) => a.volgorde - b.volgorde || a.woord.localeCompare(b.woord, PRIMARY));
+  fs.writeFileSync(WORDS_OUTPUT, JSON.stringify(words, null, 2), 'utf-8');
+  const withExample = words.filter((w) => 'voorbeeld' in w).length;
+  console.log(`✓ Built ${words.length} word(s), ${withExample} with an example from the notes → data/words.json`);
+}
+
 async function main() {
   await buildConcepts();
   await buildEssays();
   buildIdeas();
+  buildWords();
 }
 
 main().catch((err) => {

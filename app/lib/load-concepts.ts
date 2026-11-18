@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-import type { Concept, Essay, Idea } from './types';
+import type { Concept, Essay, Idea, Word } from './types';
 import { config } from './config';
 
 const CONCEPT_FIELDS = ['titel', 'kern', 'uitleg', 'waarom', 'openVragen', 'verder_lezen'] as const;
@@ -59,6 +59,17 @@ export function loadIdeas(): Idea[] {
     return JSON.parse(
       readFileSync(path.join(process.cwd(), 'data/ideas.json'), 'utf-8'),
     ) as Idea[];
+  } catch {
+    return [];
+  }
+}
+
+/** Word cards for the /taal trainer (see scripts/build-vault.ts). */
+export function loadWords(): Word[] {
+  try {
+    return JSON.parse(
+      readFileSync(path.join(process.cwd(), 'data/words.json'), 'utf-8'),
+    ) as Word[];
   } catch {
     return [];
   }
