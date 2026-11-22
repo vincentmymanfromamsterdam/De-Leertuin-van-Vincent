@@ -20,3 +20,7 @@ Thumbs.db
 # Env
 .env
 .env.local
+
+# Claude Code (per apparaat)
+**/.claude/settings.local.json
+**/.claude/worktrees/
